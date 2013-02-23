@@ -116,7 +116,7 @@ public class OperationDescriptor extends Entity {
 	}
 	
 	public boolean hasFeatures(boolean ispre) {
-		if (getFeatureDescriptors(true).size() > 0)
+		if (getFeatureDescriptors(ispre).size() > 0)
 			return true;
 		return false;
 	}
