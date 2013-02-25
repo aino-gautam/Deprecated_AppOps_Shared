@@ -49,17 +49,19 @@
 		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 		<finalName>appops_shared-${buildNumber}</finalName>
 		<resources>
-	<resource>
-      <directory>src/main/resources</directory>
-    </resource>
-    <resource>
-      <directory>src/main/java</directory>
-      <includes>
-        <include>**/*.java</include>
-        <include>**/*.gwt.xml</include>
-      </includes>
-    </resource>
-	</resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -150,19 +152,17 @@
 					<artifactId>appops_shared</artifactId>
 					<version>${buildNumber}</version>
 					<packaging>jar</packaging>
-					<repositoryId>server.ensarm.com</repositoryId>
-					<url>http://server.ensarm.com:8085/artifactory/libs-release-local</url>
+					<repositoryId>10.10.10.100</repositoryId>
+					<url>http://10.10.10.100:8085/artifactory/libs-release-local</url>
 					<description>${description}</description>
 				</configuration>
 			</plugin>
 			<!-- <plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
-					but be sure to exclude the source from the final jar file
 					<includes>
 						<include>**</include>
 					</includes>
-					
 				</configuration>
 			</plugin> -->
 		</plugins>
