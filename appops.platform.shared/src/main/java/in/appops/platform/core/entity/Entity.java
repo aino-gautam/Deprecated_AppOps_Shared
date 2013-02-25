@@ -128,6 +128,8 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 		
 		if (tempProp == null) 
 			tempProp = new Property<M>(name, val);
+		else
+			tempProp.setValue(val);
 		
 		setProperty(tempProp);
 	}

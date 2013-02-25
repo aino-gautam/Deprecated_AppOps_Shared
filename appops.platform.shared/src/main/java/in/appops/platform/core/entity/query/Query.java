@@ -18,7 +18,6 @@ public class Query extends Entity {
 	private final String QUERYID =  "id";
 	private String SERVICEID =  "serviceId";
 	private final String QUERYPARAMETERS = "queryParameters";
-	private HashMap<String, Object> parameterMap = null;
 	
 	
 	public void setQueryString(String queryStr){
@@ -54,8 +53,7 @@ public class Query extends Entity {
 	}
 	
 	public void setQueryParameterMap(HashMap<String, Object> map) {
-		this.parameterMap = map;
-		setPropertyByName(QUERYPARAMETERS, parameterMap);
+		setPropertyByName(QUERYPARAMETERS, map);
 	}
 	
 	public HashMap<String, Object> getQueryParameters() {
