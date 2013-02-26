@@ -1,4 +1,4 @@
-package in.appops.platform.core.typeconstants;
+package in.appops.platform.core.constants.typeconstants;
 
 public class TypeConstants {
 	
