@@ -1,0 +1,14 @@
+---------------------------------------------------------------------------------------------
+*Maven goal for compilation and execution of AppOps Shared
+
+clean gwt:clean compile gwt:compile gwt:run / clean gwt:clean compile gwt:compile gwt:debug
+
+---------------------------------------------------------------------------------------------
+*Maven goal for packaging and deploying the jar on ensarm maven repo
+
+buildnumber:create package deploy:deploy-file
+
+In case you face issues while packaging of jar please refer to this link
+
+https://sites.google.com/a/ensarm.com/how_to_configure/maven/jar-packaging
+----------------------------------------------------------------------------------------------
