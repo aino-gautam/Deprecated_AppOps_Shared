@@ -55,8 +55,8 @@ public final class MetaType implements Type {
 		this(-1, cls.getName());
 	}
 
-	public <T extends Serializable> MetaType(Long typeId, Class<T> cls){
-		this(typeId, cls.getName());
+	public <T extends Serializable> MetaType(Long typeId, Long serviceId, Class<T> cls){
+		this(typeId, serviceId, cls.getName());
 	}
 	
 	/**
@@ -68,9 +68,10 @@ public final class MetaType implements Type {
 		setTypeName(tp);
 	}
 	
-	public MetaType(Long typeid, String tp) {
+	public MetaType(Long typeid, Long serviceId, String tp) {
 		setTypeId(typeid);
 		setTypeName(tp);
+		setServiceId(serviceId);
 	}
 
 	public String getTypeName() {
@@ -104,13 +105,25 @@ public final class MetaType implements Type {
 	 * @see in.appops.platform.core.entity.type.Type#getTypeId()
 	 */
 	
-	public long getTypeId() {
+	public Long getTypeId() {
 		return typeId;
 	}
 
 	@Override
 	public void setTypeId(Long id) {
 		this.typeId = id;
+	}
+
+	@Override
+	public Long getServiceId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setServiceId(Long serviceId) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

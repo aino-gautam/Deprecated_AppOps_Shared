@@ -35,8 +35,12 @@ public interface Type extends Serializable {
 	public Serializable newInstance() ;
 	
 	//@Deprecated
-	public long getTypeId();
+	public Long getTypeId();
 	
 	public void setTypeId(Long id);
+	
+	public Long getServiceId();
+	
+	public void setServiceId(Long serviceId);
 }
 
