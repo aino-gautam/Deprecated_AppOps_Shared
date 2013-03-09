@@ -42,6 +42,7 @@ public final class MetaType implements Type {
 	private static final long serialVersionUID = 1L;
 	private String typeName = null; 
 	private Long typeId = null;
+	private Long serviceId = null;
 
 	public MetaType() {
 
@@ -116,14 +117,12 @@ public final class MetaType implements Type {
 
 	@Override
 	public Long getServiceId() {
-		// TODO Auto-generated method stub
-		return null;
+		return serviceId;
 	}
 
 	@Override
 	public void setServiceId(Long serviceId) {
-		// TODO Auto-generated method stub
-		
+		this.serviceId = serviceId;
 	}
 	
 }
