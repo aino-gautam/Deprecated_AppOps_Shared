@@ -7,6 +7,7 @@ import in.appops.platform.core.entity.Entity;
 public class TypeDescriptor extends Entity {
 
 	private static final long serialVersionUID = 1L;
+	private final String ID_PROP = "id";
 	private final String PROPERTY_DESCRIPTOR_PROP = "propertyDescriptors";
 	private final String NAME_PROP = "name";
 	private final String QNAME_PROP = "qname";
@@ -36,6 +37,14 @@ public class TypeDescriptor extends Entity {
 		setPropertyByName(PARENT_SERVICE, serviceDescriptor);
 	}
 
+	public Long getId() {
+		return getPropertyByName(ID_PROP);
+	}
+
+	public void setId(Long id) {
+		setPropertyByName(ID_PROP, id);
+	}
+	
 	public String getName() {
 		return getPropertyByName(NAME_PROP);
 	}
