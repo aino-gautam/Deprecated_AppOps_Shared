@@ -15,8 +15,8 @@ public class TypeDescriptor extends Entity {
 	private final String PARENT_SERVICE = "parentService";
 
 	public TypeDescriptor() {
-		HashMap<String, InterfaceDescriptor> interfaceDescriptorMap = new HashMap<String, InterfaceDescriptor>();
-		setPropertyByName(PROPERTY_DESCRIPTOR_PROP, interfaceDescriptorMap);
+		HashMap<String, PropertyDescriptor> propertyDescMap = new HashMap<String, PropertyDescriptor>();
+		setPropertyByName(PROPERTY_DESCRIPTOR_PROP, propertyDescMap);
 
 	}
 
