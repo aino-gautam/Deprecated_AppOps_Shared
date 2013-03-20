@@ -129,14 +129,16 @@ public class Entity extends
 
 		// TODO validate that the property is of valid type here
 
-		Property<M> tempProp = (Property<M>) getProperty(name);
-
-		if (tempProp == null)
-			tempProp = new Property<M>(name, val);
-		else
-			tempProp.setValue(val);
-
-		setProperty(tempProp);
+		if (val instanceof Entity)
+			getValue().put(name, (Entity)val);
+		else{
+			Property<M> tempProp = (Property<M>) getProperty(name);
+			if (tempProp == null)
+				tempProp = new Property<M>(name, val);
+			else
+				tempProp.setValue(val);
+			setProperty(tempProp);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
