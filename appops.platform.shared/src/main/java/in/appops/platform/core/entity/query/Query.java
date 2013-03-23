@@ -19,9 +19,9 @@ public class Query extends Entity {
 	private final String	SERVICEID			= "serviceId";
 	private final String	QUERYPARAMETERS		= "queryParameters";
 	private final String	LISTSIZE			= "listSize";
-	private final Long		DEFAULT_LISTSIZE	= 25L;
+	private final Integer		DEFAULT_LISTSIZE	= 25;
 	private final String	STARTINDEX			= "startIndex";
-	private final Long		DEFAULT_STARTINDEX	= 0L;
+	private final Integer		DEFAULT_STARTINDEX	= 0;
 	
 	public Query() {
 		setListSize(DEFAULT_LISTSIZE);
@@ -60,19 +60,19 @@ public class Query extends Entity {
 		return getPropertyByName(SERVICEID);
 	}
 	
-	public void setListSize(Long no) {
+	public void setListSize(Integer no) {
 		setPropertyByName(LISTSIZE, no);
 	}
 	
-	public Long getListSize() {
+	public Integer getListSize() {
 		return getPropertyByName(LISTSIZE);
 	}
 	
-	public void setStartIndex(Long no) {
+	public void setStartIndex(Integer no) {
 		setPropertyByName(STARTINDEX, no);
 	}
 	
-	public Long getStartIndex() {
+	public Integer getStartIndex() {
 		return getPropertyByName(STARTINDEX);
 	}
 	
