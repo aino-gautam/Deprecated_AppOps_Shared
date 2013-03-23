@@ -65,7 +65,7 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 	private final String	pValue	= "P[value]=";
 	private final String	pParent	= "P[parent]=";
 	private final String	sp		= " ";
-	private final String	nl		= System.getProperty("line.separator");
+	private final String	nl		= "\n";
 	
 	/**
 	 * Sets the Type of the entity
