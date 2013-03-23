@@ -36,7 +36,7 @@ public class EntityToJsonConverter {
 			if(entList!=null){
 				Integer cnt = 0;
 				for(Entity entity : entList){
-					JSONObject childJson = createChildJson(entity);
+					JSONObject childJson = createJsonFromEntity(entity);
 					jsonObj.put(cnt.toString(), childJson);
 					cnt++;
 				}
@@ -49,7 +49,7 @@ public class EntityToJsonConverter {
 	}
 
 
-	private JSONObject createChildJson(Entity entity) {
+	protected JSONObject createJsonFromEntity(Entity entity) {
 		JSONObject mainJson = null;
 		JSONObject childJson=null;
 		try{
@@ -60,7 +60,7 @@ public class EntityToJsonConverter {
 				Property prop = entity.getProperty(propName);
 				if(prop instanceof Entity){
 					Entity childEnt = (Entity) prop;
-					JSONObject subChildJson = createChildJson(childEnt);
+					JSONObject subChildJson = createJsonFromEntity(childEnt);
 					childJson.put(propName, subChildJson);
 				}
 				else{
