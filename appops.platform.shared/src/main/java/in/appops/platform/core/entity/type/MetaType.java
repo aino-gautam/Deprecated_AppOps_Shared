@@ -41,6 +41,8 @@ public final class MetaType implements Type {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String typeName = null; 
+	private Long typeId = null;
+	private Long serviceId = null;
 
 	public MetaType() {
 
@@ -54,6 +56,10 @@ public final class MetaType implements Type {
 		this(-1, cls.getName());
 	}
 
+	public <T extends Serializable> MetaType(Long typeId, Long serviceId, Class<T> cls){
+		this(typeId, serviceId, cls.getName());
+	}
+	
 	/**
 	 * Write code for id = -1 here. It should auto select a non colliding id in
 	 * this case.
@@ -61,6 +67,12 @@ public final class MetaType implements Type {
 	 */
 	public MetaType(int id, String tp) {
 		setTypeName(tp);
+	}
+	
+	public MetaType(Long typeid, Long serviceId, String tp) {
+		setTypeId(typeid);
+		setTypeName(tp);
+		setServiceId(serviceId);
 	}
 
 	public String getTypeName() {
@@ -94,9 +106,23 @@ public final class MetaType implements Type {
 	 * @see in.appops.platform.core.entity.type.Type#getTypeId()
 	 */
 	
-	public long getTypeId() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Long getTypeId() {
+		return typeId;
+	}
+
+	@Override
+	public void setTypeId(Long id) {
+		this.typeId = id;
+	}
+
+	@Override
+	public Long getServiceId() {
+		return serviceId;
+	}
+
+	@Override
+	public void setServiceId(Long serviceId) {
+		this.serviceId = serviceId;
 	}
 	
 }
