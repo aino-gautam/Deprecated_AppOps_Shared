@@ -12,7 +12,6 @@ import in.appops.platform.core.entity.type.Type;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Map.Entry;
 
 import com.google.common.annotations.GwtCompatible;
 
@@ -55,15 +54,7 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 	}
 	
 	public Type			type	= null;
-	public String		spaces	= "";
-	public StringBuffer	buffer	= null;
-	public String		eName	= "E[name]=";
-	public String		pName	= "P[name]=";
-	public String		pType	= "P[type]=";
-	public String		pValue	= "P[value]=";
-	public String		pParent	= "P[parent]=";
-	public String		sp		= " ";
-	public String		nl		= "\n";
+
 	
 	/**
 	 * Sets the Type of the entity
@@ -159,7 +150,7 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 		}
 	}
 	
-	@Override
+	/*@Override
 	public String toString() {
 		if (buffer == null)
 			buffer = new StringBuffer();
@@ -212,5 +203,5 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 			buffer.append(sp);
 		}
 		buffer.append(nl);
-	}
+	}*/
 }
