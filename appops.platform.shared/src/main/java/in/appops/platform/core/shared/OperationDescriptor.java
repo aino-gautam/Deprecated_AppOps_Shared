@@ -19,6 +19,11 @@ public class OperationDescriptor extends Entity {
 	private final String		MAPPED_TO					= "mappedTo";
 	private final String		PRE_FEATURE_DESCRIPTORS		= "preFeatureDescriptors";
 	
+	public final String SELFMSG = "selfMsg";
+	public final String GENERALMSG = "generalMsg";
+	public final String PARTICIPANTMSG = "participantMsg";
+	public final String SCOPE = "scope";
+	
 	public OperationDescriptor() {
 		Property<LinkedHashMap<String, String>> parameterMapProp = new Property<LinkedHashMap<String, String>>();
 		parameterMapProp.setName(PARAMETER_MAP_PROP);
@@ -121,4 +126,35 @@ public class OperationDescriptor extends Entity {
 		return false;
 	}
 	
+	public String getSelfMsg() {
+		return getPropertyByName(SELFMSG);
+	}
+	
+	public void setSelfMsg(String selfMsg) {
+		setPropertyByName(SELFMSG, selfMsg);
+	}
+	
+	public String getGeneralMsg() {
+		return getPropertyByName(GENERALMSG);
+	}
+	
+	public void setGeneralMsg(String generalMsg) {
+		setPropertyByName(GENERALMSG, generalMsg);
+	}
+	
+	public String getParticipantMsg() {
+		return getPropertyByName(PARTICIPANTMSG);
+	}
+	
+	public void setParticipantMsg(String participantMsg) {
+		setPropertyByName(PARTICIPANTMSG, participantMsg);
+	}
+	
+	public String getScope() {
+		return getPropertyByName(SCOPE);
+	}
+	
+	public void setScope(String scope) {
+		setPropertyByName(SCOPE, scope);
+	}
 }
