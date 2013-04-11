@@ -37,4 +37,8 @@ public class TypeConstants {
 	public static final String TYPESED = "Typesed";
 	public static final String BANNER = "Banner";
 	
+	public static final String DEAL = "Deal";
+	public static final String DEALENUM = "DealEnum";
+	public static final String DEALUSER = "DealUser";
+	
 }
