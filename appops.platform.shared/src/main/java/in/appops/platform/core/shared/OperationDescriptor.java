@@ -24,6 +24,8 @@ public class OperationDescriptor extends Entity {
 	public final String PARTICIPANTMSG = "participantMsg";
 	public final String SCOPE = "scope";
 	
+	private String OPERATIONID = "operationId";
+	
 	public OperationDescriptor() {
 		Property<LinkedHashMap<String, String>> parameterMapProp = new Property<LinkedHashMap<String, String>>();
 		parameterMapProp.setName(PARAMETER_MAP_PROP);
@@ -156,5 +158,13 @@ public class OperationDescriptor extends Entity {
 	
 	public void setScope(String scope) {
 		setPropertyByName(SCOPE, scope);
+	}
+	
+	public Long getOperationId() {
+		return getPropertyByName(OPERATIONID);
+	}
+	
+	public void setOperationId(Long operationId) {
+		setPropertyByName(OPERATIONID, operationId);
 	}
 }
