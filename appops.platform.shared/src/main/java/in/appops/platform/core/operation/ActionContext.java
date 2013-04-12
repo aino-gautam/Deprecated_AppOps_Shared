@@ -1,41 +1,28 @@
 package in.appops.platform.core.operation;
 
-import in.appops.platform.bindings.web.gwt.dispatch.client.action.StandardAction;
 import in.appops.platform.core.entity.Entity;
 
 /**
  * @author nitish@ensarm.com
  */
 public class ActionContext extends Entity implements IActionContext{
-	private StandardAction action;
-
 	@Override
 	public Entity getSource() {
-		return getPropertyByName(SOURCE);
+		return (Entity) getProperty(SOURCE);
 	}
 
 	@Override
 	public void setSource(Entity source) {
-		setPropertyByName(SOURCE, source);
+		setProperty(SOURCE, source);
 	}
 
 	@Override
 	public Entity getSpace() {
-		return getPropertyByName(SPACE);
+		return (Entity) getProperty(SPACE);
 	}
 
 	@Override
 	public void setSpace(Entity space) {
-		setPropertyByName(SPACE, space);
-	}
-
-	@Override
-	public StandardAction getAction() {
-		return action;
-	}
-
-	@Override
-	public void setAction(StandardAction action) {
-		this.action = action;
+		setProperty(SPACE, space);
 	}
 }
