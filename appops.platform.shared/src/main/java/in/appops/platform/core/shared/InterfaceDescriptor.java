@@ -11,6 +11,8 @@ public class InterfaceDescriptor extends Entity {
 	private final String		METHOD_DESCRIPTOR_PROP	= "methodDescriptors";
 	private final String		NAME_PROP				= "name";
 	private final String		QNAME_PROP				= "qname";
+	private String INTERFACEID = "interfaceId";
+	
 	
 	public InterfaceDescriptor() {
 		Property<HashMap<String, OperationDescriptor>> methodDescriptorMapProp = new Property<HashMap<String, OperationDescriptor>>();
@@ -32,6 +34,14 @@ public class InterfaceDescriptor extends Entity {
 		String[] substrings = interfaceName.split("\\.");
 		return substrings[substrings.length - 1];
 		
+	}
+	
+	public Long getId() {
+		return getPropertyByName(INTERFACEID);
+	}
+	
+	public void setId(Long interfaceId) {
+		setPropertyByName(INTERFACEID, interfaceId);
 	}
 	
 	public String getName() {

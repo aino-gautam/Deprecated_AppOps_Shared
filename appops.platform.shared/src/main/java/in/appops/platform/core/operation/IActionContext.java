@@ -12,7 +12,6 @@ import in.appops.platform.core.entity.Entity;
 public interface IActionContext extends Serializable{
 	String SOURCE = "source";
 	String SPACE = "space";
-	String ACTION = "action";
 	
 	Entity getSource();
 	void setSource(Entity source);
@@ -20,6 +19,6 @@ public interface IActionContext extends Serializable{
 	Entity getSpace();
 	void setSpace(Entity space);
 	
-	StandardAction getAction();
-	void setAction(StandardAction action);
+	StandardAction getEmbeddedAction();
+	void setEmbeddedAction(StandardAction embeddedAction);
 }

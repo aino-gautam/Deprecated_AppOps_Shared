@@ -15,6 +15,7 @@ public class ServiceDescriptor extends Entity {
 	private final String NAME_PROP = "name";
 	private final String TYPE_DESCRIPTORS_PROP = "typeDescriptors";
 	
+	private String SERVICEID = "serviceId";
 
 	public ServiceDescriptor() {
 		HashMap<String, InterfaceDescriptor> interfaceDescriptorMap = new HashMap<String, InterfaceDescriptor>();
@@ -29,6 +30,15 @@ public class ServiceDescriptor extends Entity {
 		setName(serviceName);
 	}
 
+	public Long getServiceId() {
+		return getPropertyByName(SERVICEID);
+	}
+
+	public void setServiceId(Long id) {
+		setPropertyByName(SERVICEID, id);
+	}
+
+	
 	/*
 	 * public void setExportPackage(String exportPackage) {
 	 * setPropertyByName(EXPORT_PACKAGE, exportPackage); Property<String>
