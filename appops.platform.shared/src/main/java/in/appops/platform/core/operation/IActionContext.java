@@ -18,4 +18,7 @@ public interface IActionContext extends Serializable{
 	
 	Entity getSpace();
 	void setSpace(Entity space);
+	
+	StandardAction getEmbeddedAction();
+	void setEmbeddedAction(StandardAction embeddedAction);
 }
