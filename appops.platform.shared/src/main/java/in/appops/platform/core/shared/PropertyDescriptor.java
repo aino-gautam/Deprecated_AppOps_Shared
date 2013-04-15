@@ -10,6 +10,15 @@ public class PropertyDescriptor extends Entity {
 	public static final String ORDER = "order";
 	public static final String OPTIONAL = "optional";
 	public static final String CORE = "core";
+	private String PROPERTYID = "propertyId";
+	
+	public Long getId() {
+		return getPropertyByName(PROPERTYID);
+	}
+
+	public void setId(Long val) {
+		setPropertyByName(PROPERTYID, val);
+	}
 	
 	public Entity getParentType() {
 		return getPropertyByName(PARENTYPEDESC);

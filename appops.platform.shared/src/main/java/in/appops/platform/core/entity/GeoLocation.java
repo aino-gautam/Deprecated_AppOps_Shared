@@ -44,11 +44,23 @@ final public class GeoLocation extends Property {
 	
 	private double latitude ;
 	private double longitude ; 
-	
+	private double distanceFromCurrentLocation;
 	
 	public boolean equals(Object obj) {
 		// TODO Must be custom implemented .. consider precision values while implementing 
 		return super.equals(obj);
+	}
+	/**
+	 * @return the distanceFromCurrentLocation
+	 */
+	public double getDistanceFromCurrentLocation() {
+		return distanceFromCurrentLocation;
+	}
+	/**
+	 * @param distanceFromCurrentLocation the distanceFromCurrentLocation to set
+	 */
+	public void setDistanceFromCurrentLocation(double distanceFromCurrentLocation) {
+		this.distanceFromCurrentLocation = distanceFromCurrentLocation;
 	}
 	
 }
