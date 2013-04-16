@@ -1,6 +1,5 @@
 package in.appops.platform.bindings.web.gwt.dispatch.client.action;
 
-
 import in.appops.platform.core.operation.*;
 import javax.xml.ws.Dispatch;
 
@@ -16,5 +15,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 @SuppressWarnings("rawtypes")
 public interface DispatchAsync {
-    <A extends Action<R>, R extends Result> void execute( A action, AsyncCallback<R> callback );
+	<A extends Action<R>, R extends Result> void execute(A action, AsyncCallback<R> callback);
+	
+	<A extends Action<R>, R extends Result> void executeContextAction(ActionContext context, AsyncCallback<R> callback);
+	
 }
