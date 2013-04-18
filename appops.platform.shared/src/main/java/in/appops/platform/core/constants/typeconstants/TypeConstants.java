@@ -41,4 +41,6 @@ public class TypeConstants {
 	public static final String DEALENUM = "DealEnum";
 	public static final String DEALUSER = "DealUser";
 	
+	public static final String POST = "Post";
+	
 }
