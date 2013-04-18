@@ -29,6 +29,11 @@ public class StandardAction implements Action {
 		map = parameters;
 	}
 	
+	public StandardAction(String action, Map parameters) {
+		actionName = action;
+		map = parameters;
+	}
+	
 	public String getActionName() {
 		return actionName;
 	}
