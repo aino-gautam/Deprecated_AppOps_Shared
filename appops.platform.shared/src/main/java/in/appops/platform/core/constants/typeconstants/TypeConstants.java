@@ -45,4 +45,7 @@ public class TypeConstants {
 
 	public static final String BOOKING = "Booking";
 	
+	public static final String MESSAGE = "Message";
+	public static final String MESSAGEPARTICIPANTS = "MessageParticipants";
+	
 }
