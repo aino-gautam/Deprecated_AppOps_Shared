@@ -42,5 +42,10 @@ public class TypeConstants {
 	public static final String DEALUSER = "DealUser";
 	
 	public static final String POST = "Post";
+
+	public static final String BOOKING = "Booking";
+	
+	public static final String MESSAGE = "Message";
+	public static final String MESSAGEPARTICIPANTS = "MessageParticipants";
 	
 }
