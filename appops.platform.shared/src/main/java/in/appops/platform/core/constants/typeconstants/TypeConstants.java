@@ -48,4 +48,5 @@ public class TypeConstants {
 	public static final String MESSAGE = "Message";
 	public static final String MESSAGEPARTICIPANTS = "MessageParticipants";
 	
+	public static final String ACTIVITY = "Activity";
 }
