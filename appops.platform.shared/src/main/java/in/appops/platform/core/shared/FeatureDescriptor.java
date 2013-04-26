@@ -15,8 +15,17 @@ public class FeatureDescriptor extends Entity {
 	private final String		IS_PRE_EXECUTION	= "isPreExecution";
 	private final String		NAME_PROP			= "name";
 	private final String		QNAME_PROP			= "qname";
+	private String FEATUREID = "featureId";
 	
 	public FeatureDescriptor() {
+	}
+	
+	public Long getId() {
+		return getPropertyByName(FEATUREID);
+	}
+	
+	public void setId(Long id) {
+		setPropertyByName(FEATUREID, id);
 	}
 	
 	public String getName() {

@@ -1,7 +1,7 @@
 package in.appops.platform.bindings.web.gwt.dispatch.client.action;
 
-import in.appops.platform.bindings.web.gwt.dispatch.client.action.exception.DispatchException;
 import in.appops.platform.core.operation.Result;
+import in.appops.platform.core.util.AppOpsException;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -16,6 +16,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("dispatch")
 public interface StandardDispatchService extends RemoteService {
 
-	Result execute(Action<?> action) throws DispatchException;
+	Result execute(Action<?> action) throws AppOpsException;
 
 }

@@ -24,6 +24,12 @@ public class OperationDescriptor extends Entity {
 	public final String PARTICIPANTMSG = "participantMsg";
 	public final String SCOPE = "scope";
 	
+	public final String ACTIVITYSELFMSG = "activitySelfMsg";
+	public final String ACTIVITYGENERALMSG = "activityGeneralMsg";
+	public final String ACTIVITYPARTICIPANTMSG = "activityParticipantMsg";
+	
+	private String OPERATIONID = "operationId";
+	
 	public OperationDescriptor() {
 		Property<LinkedHashMap<String, String>> parameterMapProp = new Property<LinkedHashMap<String, String>>();
 		parameterMapProp.setName(PARAMETER_MAP_PROP);
@@ -156,5 +162,37 @@ public class OperationDescriptor extends Entity {
 	
 	public void setScope(String scope) {
 		setPropertyByName(SCOPE, scope);
+	}
+	
+	public Long getOperationId() {
+		return getPropertyByName(OPERATIONID);
+	}
+	
+	public void setOperationId(Long operationId) {
+		setPropertyByName(OPERATIONID, operationId);
+	}
+	
+	public String getActivitySelfMsg() {
+		return getPropertyByName(ACTIVITYSELFMSG);
+	}
+	
+	public void setActivitySelfMsg(String selfMsg) {
+		setPropertyByName(ACTIVITYSELFMSG, selfMsg);
+	}
+	
+	public String getActivityGeneralMsg() {
+		return getPropertyByName(ACTIVITYGENERALMSG);
+	}
+	
+	public void setActivityGeneralMsg(String generalMsg) {
+		setPropertyByName(ACTIVITYGENERALMSG, generalMsg);
+	}
+	
+	public String getActivityParticipantMsg() {
+		return getPropertyByName(ACTIVITYPARTICIPANTMSG);
+	}
+	
+	public void setActivityParticipantMsg(String participantMsg) {
+		setPropertyByName(ACTIVITYPARTICIPANTMSG, participantMsg);
 	}
 }
