@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class InitiateActionContext extends ActionContext {
 	public static final String	MEDIA			= "media";
 	public static final String	INTELLITHOUGHT	= "intelliThought";
-	public static final String	ACTION			= "action";
 	
 	public ArrayList<String> getUploadedMedia() {
 		return getPropertyByName(MEDIA);
@@ -26,14 +25,6 @@ public class InitiateActionContext extends ActionContext {
 	
 	public void setIntelliThought(IntelliThought intelliThought) {
 		setPropertyByName(INTELLITHOUGHT, intelliThought);
-	}
-	
-	public void setAction(String action) {
-		setPropertyByName(ACTION, action);
-	}
-	
-	public String getAction() {
-		return getPropertyByName(ACTION);
 	}
 	
 }
