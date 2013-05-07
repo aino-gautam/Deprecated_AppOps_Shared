@@ -3,6 +3,9 @@
  */
 package in.appops.platform.core.util;
 
+import in.appops.platform.bindings.web.gwt.dispatch.client.action.StandardAction;
+import in.appops.platform.core.entity.Entity;
+
 import com.google.common.annotations.GwtCompatible;
 
 /**
@@ -38,25 +41,68 @@ public class AppOpsException extends Exception {
 	 * We should be able to map exceptions to operations.	
 	 * 
 	 */
-	private String	msg;
+	private String			causeName;
+	private String			msg;
+	private Entity			actionContext;
+	private StandardAction	standardAction;
+	
+	public AppOpsException() {
+		
+	}
+	
+	public AppOpsException(Entity actionContext, StandardAction standardAction, String cause, String msg) {
+		this.causeName = cause;
+		this.msg = msg;
+		this.actionContext = actionContext;
+		this.standardAction = standardAction;
+	}
+	
+	public AppOpsException(Entity actionContext, String cause, String msg) {
+		this.causeName = cause;
+		this.msg = msg;
+		this.actionContext = actionContext;
+	}
+	
+	public AppOpsException(String msg) {
+		this.msg = msg;
+	}
+	
+	// TODO needs to evolve.. for now I am getting the dispatch mechanism to work
+	public AppOpsException(String cause, String msg) {
+		this.causeName = cause;
+		this.msg = msg;
+	}
+	
+	public Entity getActionContext() {
+		return actionContext;
+	}
+	
+	public String getCauseName() {
+		return causeName;
+	}
 	
 	public String getMsg() {
 		return msg;
+	}
+	
+	public StandardAction getStandardAction() {
+		return standardAction;
+	}
+	
+	public void setActionContext(Entity actionContext) {
+		this.actionContext = actionContext;
+	}
+	
+	public void setCauseName(String cause) {
+		this.causeName = cause;
 	}
 	
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
 	
-	public AppOpsException() {
-		
-	}
-	
-	// TODO needs to evolve.. for now I am getting the dispatch mechanism to work
-	public AppOpsException(String msg) {
-		//temporary
-		System.out.println(msg);
-		this.msg = msg;
+	public void setStandardAction(StandardAction standardAction) {
+		this.standardAction = standardAction;
 	}
 	
 }
