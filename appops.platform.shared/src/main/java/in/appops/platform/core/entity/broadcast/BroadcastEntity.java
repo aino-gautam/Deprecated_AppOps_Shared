@@ -22,6 +22,15 @@ public class BroadcastEntity extends Entity{
 	private String BROADCASTTIME = "broadcastTime";
 	private String BROADCASTENTITY = "broadcastEntity";
 	private String SERVICE = "service";
+	private String ISNEARBYBROADCAST = "isNearByBroadCast";
+	
+	public Boolean getIsNearByBroadCast(){
+		return getPropertyByName(ISNEARBYBROADCAST);
+	}
+	
+	public void setIsNearByBroadCast(Boolean value){
+		setPropertyByName(ISNEARBYBROADCAST, value);
+	}
 	
 	public void setService(Entity value){
 		setPropertyByName(SERVICE, value);
