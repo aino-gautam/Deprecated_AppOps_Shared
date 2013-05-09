@@ -2,6 +2,7 @@ package in.appops.platform.core.shared;
 
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.Property;
+import in.appops.platform.core.util.EntityList;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -23,6 +24,12 @@ public class OperationDescriptor extends Entity {
 	public final String GENERALMSG = "generalMsg";
 	public final String PARTICIPANTMSG = "participantMsg";
 	public final String SCOPE = "scope";
+	
+	public final String ACTIVITYSELFMSG = "activitySelfMsg";
+	public final String ACTIVITYGENERALMSG = "activityGeneralMsg";
+	public final String ACTIVITYPARTICIPANTMSG = "activityParticipantMsg";
+
+	public final String ASSOCIATED_TAGS = "associatedTags";
 	
 	private String OPERATIONID = "operationId";
 	
@@ -166,5 +173,37 @@ public class OperationDescriptor extends Entity {
 	
 	public void setOperationId(Long operationId) {
 		setPropertyByName(OPERATIONID, operationId);
+	}
+	
+	public String getActivitySelfMsg() {
+		return getPropertyByName(ACTIVITYSELFMSG);
+	}
+	
+	public void setActivitySelfMsg(String selfMsg) {
+		setPropertyByName(ACTIVITYSELFMSG, selfMsg);
+	}
+	
+	public String getActivityGeneralMsg() {
+		return getPropertyByName(ACTIVITYGENERALMSG);
+	}
+	
+	public void setActivityGeneralMsg(String generalMsg) {
+		setPropertyByName(ACTIVITYGENERALMSG, generalMsg);
+	}
+	
+	public String getActivityParticipantMsg() {
+		return getPropertyByName(ACTIVITYPARTICIPANTMSG);
+	}
+	
+	public void setActivityParticipantMsg(String participantMsg) {
+		setPropertyByName(ACTIVITYPARTICIPANTMSG, participantMsg);
+	}
+
+	public String getAssociatedTags() {
+		return getPropertyByName(ASSOCIATED_TAGS);
+	}
+	
+	public void setAssociatedTags(EntityList associatedTagList) {
+		setPropertyByName(ASSOCIATED_TAGS, associatedTagList);
 	}
 }
