@@ -38,4 +38,15 @@ public class ActionContext extends Entity implements IActionContext{
 	public void setEmbeddedAction(StandardAction embeddedAction) {
 		this.embeddedAction = embeddedAction;
 	}
+
+	@Override
+	public Entity getActionEntity() {
+		return (Entity) getProperty(ACTION);
+	}
+
+	@Override
+	public void setActionEntity(Entity action) {
+		setProperty(ACTION, action);
+		
+	}
 }
