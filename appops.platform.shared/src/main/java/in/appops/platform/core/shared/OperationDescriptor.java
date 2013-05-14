@@ -199,7 +199,7 @@ public class OperationDescriptor extends Entity {
 		setPropertyByName(ACTIVITYPARTICIPANTMSG, participantMsg);
 	}
 
-	public String getAssociatedTags() {
+	public EntityList getAssociatedTags() {
 		return getPropertyByName(ASSOCIATED_TAGS);
 	}
 	
