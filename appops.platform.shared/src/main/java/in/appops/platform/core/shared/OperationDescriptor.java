@@ -2,6 +2,7 @@ package in.appops.platform.core.shared;
 
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.Property;
+import in.appops.platform.core.util.EntityList;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -27,6 +28,8 @@ public class OperationDescriptor extends Entity {
 	public final String ACTIVITYSELFMSG = "activitySelfMsg";
 	public final String ACTIVITYGENERALMSG = "activityGeneralMsg";
 	public final String ACTIVITYPARTICIPANTMSG = "activityParticipantMsg";
+
+	public final String ASSOCIATED_TAGS = "associatedTags";
 	
 	private String OPERATIONID = "operationId";
 	
@@ -194,5 +197,13 @@ public class OperationDescriptor extends Entity {
 	
 	public void setActivityParticipantMsg(String participantMsg) {
 		setPropertyByName(ACTIVITYPARTICIPANTMSG, participantMsg);
+	}
+
+	public EntityList getAssociatedTags() {
+		return getPropertyByName(ASSOCIATED_TAGS);
+	}
+	
+	public void setAssociatedTags(EntityList associatedTagList) {
+		setPropertyByName(ASSOCIATED_TAGS, associatedTagList);
 	}
 }
