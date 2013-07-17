@@ -24,6 +24,7 @@ public class ChatEntity extends Entity{
 	private String participantEntity = "participantEntity";
 	private String headerTitle = "headerTitle";
 	private String chatRecordMap = "chatRecordMap";
+	private String participantContactEntity = "participantContactEntity";
 	
 	public void setIsGroupChat(Boolean isGroupChat){
 		setPropertyByName(this.isGroupChat, isGroupChat);
@@ -63,5 +64,13 @@ public class ChatEntity extends Entity{
 	
 	public HashMap<Long,HashMap<Entity, Entity>> getChatRecordMap(){
 		return getPropertyByName(this.chatRecordMap);
+	}
+	
+	public void setParticipantContactEntity(EntityList participantContactEntity){
+		setPropertyByName(this.participantContactEntity, participantContactEntity);
+	}
+	
+	public EntityList getParticipantContactEntity(){
+		return getPropertyByName(this.participantContactEntity);
 	}
 }
