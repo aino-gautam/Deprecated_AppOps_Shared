@@ -15,7 +15,7 @@ public class EntityTest {
 	 * Will set properties to an entity using the graph setter method
 	 * @return
 	 */
-	@Test
+	//@Test
 	public Entity testSetGraphPropertyValue() {
 		try{
 			Entity entity = new Entity();
@@ -55,16 +55,19 @@ public class EntityTest {
 		try{
 			Entity entity = testSetGraphPropertyValue();
 			assertTrue(entity.getGraphPropertyValue("id",null) !=null);
+			assertTrue(entity.getGraphPropertyValue("id",null).equals("2"));
 
 			assertTrue(entity.getGraphPropertyValue("child",null) !=null);
+			assertTrue(entity.getGraphPropertyValue("child",null) instanceof Entity);
 			
 			assertTrue(entity.getGraphPropertyValue("child.id",null) != null);
-
-			assertTrue(entity.getGraphPropertyValue("child.subChild",null) != null);
+			assertTrue(entity.getGraphPropertyValue("child.id",null).equals("1"));
 			
+			assertTrue(entity.getGraphPropertyValue("child.subChild",null) != null);
 			assertTrue(entity.getGraphPropertyValue("child.subChild",null) instanceof Entity);
-
+			
 			assertTrue(entity.getGraphPropertyValue("child.subChild.id",null) != null );
+			assertTrue(entity.getGraphPropertyValue("child.subChild.id",null).equals("5"));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
