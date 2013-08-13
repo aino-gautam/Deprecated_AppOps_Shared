@@ -68,6 +68,10 @@ public class EntityTest {
 			
 			assertTrue(entity.getGraphPropertyValue("child.subChild.id",null) != null );
 			assertTrue(entity.getGraphPropertyValue("child.subChild.id",null).equals("5"));
+			
+			entity.setGraphPropertyValue("child.subChild.id", "55555",null);
+			assertTrue(entity.getGraphPropertyValue("child.subChild.id",null).equals("55555"));
+
 		}
 		catch (Exception e) {
 			e.printStackTrace();
