@@ -252,9 +252,12 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 									}
 								}
 								else {
-									Property<M> tempProp = (Property<M>) getProperty(name);
+									if(entity == null) {
+										entity = this;
+									}
+									Property<M> tempProp = (Property<M>) entity.getProperty(name);
 									tempProp.setValue(val);
-									setProperty(tempProp);
+									entity.setProperty(tempProp);
 								}
 							}
 							else {
