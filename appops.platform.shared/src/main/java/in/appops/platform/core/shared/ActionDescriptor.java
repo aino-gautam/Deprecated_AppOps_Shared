@@ -17,7 +17,7 @@ public class ActionDescriptor extends Entity {
 		setActionId(id);
 	}
 	
-	public String getActionId() {
+	public Long getActionId() {
 		return getPropertyByName(ACTIONID);
 	}
 	
