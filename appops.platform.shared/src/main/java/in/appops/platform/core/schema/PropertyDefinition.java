@@ -24,6 +24,7 @@ public class PropertyDefinition implements Serializable{
 	private String typeName = null;
 	
 	private Long id = null;
+	private Boolean isUpdated = false; 
 	
 	public PropertyDefinition() {
 	}
@@ -92,6 +93,14 @@ public class PropertyDefinition implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Boolean getIsUpdated() {
+		return isUpdated;
+	}
+
+	public void setIsUpdated(Boolean isUpdated) {
+		this.isUpdated = isUpdated;
 	}
 
 }
