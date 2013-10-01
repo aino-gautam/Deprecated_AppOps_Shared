@@ -7,4 +7,5 @@
 	<source path="operation"/>
 	<source path="user"/>
 	<source path="util"/>
+	<source path="schema"/>
 </module>
