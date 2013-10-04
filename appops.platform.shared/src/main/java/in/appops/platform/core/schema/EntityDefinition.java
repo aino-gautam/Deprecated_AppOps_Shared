@@ -22,6 +22,7 @@ public class EntityDefinition implements Serializable{
 	private Long schemaId = null;
 	private Long id = null;
 	private HashMap<String , PropertyDefinition> propertyDefMap = new HashMap<String, PropertyDefinition>();
+	private Boolean isUpdated = false; 
 
 	public void addPropertyDefinition(PropertyDefinition pdef) {
 		propertyDefMap.put(pdef.getName(), pdef);
@@ -108,5 +109,13 @@ public class EntityDefinition implements Serializable{
 
 	public String getTypeQualifier() {
 		return typeQualifier;
+	}
+
+	public Boolean getIsUpdated() {
+		return isUpdated;
+	}
+
+	public void setIsUpdated(Boolean isUpdated) {
+		this.isUpdated = isUpdated;
 	}
 }
