@@ -18,6 +18,7 @@ public class OperationDescriptor extends Entity {
 	private final String		PARAMETER_MAP_PROP			= "parameters";
 	private final String		NAME_PROP					= "name";
 	private final String		MAPPED_TO					= "mappedTo";
+	private final String		ISAUTHERIZED					= "isAutherized";
 	private final String		PRE_FEATURE_DESCRIPTORS		= "preFeatureDescriptors";
 	
 	public final String SELFMSG = "selfMsg";
@@ -159,12 +160,12 @@ public class OperationDescriptor extends Entity {
 		setPropertyByName(PARTICIPANTMSG, participantMsg);
 	}
 	
-	public String getScope() {
-		return getPropertyByName(SCOPE);
+	public Boolean getIsAutherized() {
+		return getPropertyByName(ISAUTHERIZED);
 	}
 	
-	public void setScope(String scope) {
-		setPropertyByName(SCOPE, scope);
+	public void setIsAutherized(Boolean isAutherized) {
+		setPropertyByName(ISAUTHERIZED, isAutherized);
 	}
 	
 	public Long getOperationId() {
