@@ -6,6 +6,7 @@ import com.google.common.annotations.GwtCompatible;
 
 /**
  * @author Debasish Padhy Created it on 13-Jun-2013
+ * @modifiedBy milind@ensarm.com
  * 
  * We will use derived types of property definition objects to contain details of property specifics 
  * such as size , constraints and subtypes (such as email , password , creditcard , richtext etc. )
