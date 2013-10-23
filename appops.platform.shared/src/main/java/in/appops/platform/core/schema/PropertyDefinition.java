@@ -6,6 +6,7 @@ import com.google.common.annotations.GwtCompatible;
 
 /**
  * @author Debasish Padhy Created it on 13-Jun-2013
+ * @modifiedBy milind@ensarm.com
  * 
  * We will use derived types of property definition objects to contain details of property specifics 
  * such as size , constraints and subtypes (such as email , password , creditcard , richtext etc. )
@@ -24,6 +25,7 @@ public class PropertyDefinition implements Serializable{
 	private String typeName = null;
 	
 	private Long id = null;
+	private Boolean isUpdated = false; 
 	
 	public PropertyDefinition() {
 	}
@@ -92,6 +94,14 @@ public class PropertyDefinition implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Boolean getIsUpdated() {
+		return isUpdated;
+	}
+
+	public void setIsUpdated(Boolean isUpdated) {
+		this.isUpdated = isUpdated;
 	}
 
 }

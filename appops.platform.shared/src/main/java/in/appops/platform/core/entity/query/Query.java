@@ -19,13 +19,15 @@ public class Query extends Entity {
 	private final String	SERVICEID			= "serviceId";
 	private final String	QUERYPARAMETERS		= "queryParameters";
 	private final String	LISTSIZE			= "listSize";
-	private final Integer		DEFAULT_LISTSIZE	= 25;
+	private final Integer	DEFAULT_LISTSIZE	= 25;
+	private final String	ISCOMPLETELIST			= "isCompleteList";
 	private final String	STARTINDEX			= "startIndex";
-	private final Integer		DEFAULT_STARTINDEX	= 0;
+	private final Integer	DEFAULT_STARTINDEX	= 0;
 	
 	public Query() {
 		setListSize(DEFAULT_LISTSIZE);
 		setStartIndex(DEFAULT_STARTINDEX);
+		setIsCompleteList(false);
 	}
 	
 	public void setQueryString(String queryStr) {
@@ -58,6 +60,14 @@ public class Query extends Entity {
 	
 	public String getServiceId() {
 		return getPropertyByName(SERVICEID);
+	}
+	
+	public void setIsCompleteList(Boolean isCompleteList) {
+		setPropertyByName(ISCOMPLETELIST, isCompleteList);
+	}
+	
+	public Boolean getIsCompleteList() {
+		return getPropertyByName(ISCOMPLETELIST);
 	}
 	
 	public void setListSize(Integer no) {

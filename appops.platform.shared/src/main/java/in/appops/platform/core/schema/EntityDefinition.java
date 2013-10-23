@@ -10,6 +10,7 @@ import com.google.common.annotations.GwtCompatible;
 
 /**
  * @author Debasish Padhy Created it on 13-Jun-2013
+ * @modifiedBy milind@ensarm.com
  * Derived types will be used to specify predefined entity structures such as enumerations etc. 
  */
 @GwtCompatible
@@ -22,6 +23,7 @@ public class EntityDefinition implements Serializable{
 	private Long schemaId = null;
 	private Long id = null;
 	private HashMap<String , PropertyDefinition> propertyDefMap = new HashMap<String, PropertyDefinition>();
+	private Boolean isUpdated = false; 
 
 	public void addPropertyDefinition(PropertyDefinition pdef) {
 		propertyDefMap.put(pdef.getName(), pdef);
@@ -108,5 +110,13 @@ public class EntityDefinition implements Serializable{
 
 	public String getTypeQualifier() {
 		return typeQualifier;
+	}
+
+	public Boolean getIsUpdated() {
+		return isUpdated;
+	}
+
+	public void setIsUpdated(Boolean isUpdated) {
+		this.isUpdated = isUpdated;
 	}
 }

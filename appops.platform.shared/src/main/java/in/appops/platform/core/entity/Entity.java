@@ -80,6 +80,9 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 		return getValue().get(name);
 	}
 	
+	public void removeProperty(String name){
+		getValue().remove(name);
+	}
 	/**
 	 * @param name
 	 *            - name of the property, can't be null

@@ -14,14 +14,19 @@ public class ServiceDescriptor extends Entity {
 	private final String INTERFACE_DESCRIPTOR_PROP = "interfaceDescriptors";
 	private final String NAME_PROP = "name";
 	private final String TYPE_DESCRIPTORS_PROP = "typeDescriptors";
+	private final String ACTION_DESCRIPTORS_PROP = "actionDescriptors";
 	
 	private String SERVICEID = "serviceId";
 
 	public ServiceDescriptor() {
 		HashMap<String, InterfaceDescriptor> interfaceDescriptorMap = new HashMap<String, InterfaceDescriptor>();
 		setPropertyByName(INTERFACE_DESCRIPTOR_PROP, interfaceDescriptorMap);
+		
 		HashMap<String, TypeDescriptor> typeDescriptorMap = new HashMap<String, TypeDescriptor>();
 		setPropertyByName(TYPE_DESCRIPTORS_PROP, typeDescriptorMap);
+		
+		HashMap<Long, ActionDescriptor> actionDescriptors = new HashMap<Long, ActionDescriptor>();
+		setPropertyByName(ACTION_DESCRIPTORS_PROP, actionDescriptors);
 		
 	}
 
@@ -82,6 +87,24 @@ public class ServiceDescriptor extends Entity {
 	public HashMap<String, TypeDescriptor> getTypeDescriptors() {
 		HashMap<String, TypeDescriptor> typeDescriptorMap = getPropertyByName(TYPE_DESCRIPTORS_PROP);
 		return typeDescriptorMap;
+	}
+	
+	public ActionDescriptor getActionDescriptor(Long actiond) {
+		HashMap<Long, ActionDescriptor> actionDescriptorMap = getPropertyByName(ACTION_DESCRIPTORS_PROP);
+		return actionDescriptorMap != null ? actionDescriptorMap.get(actiond) : null;
+	}
+
+	public HashMap<Long, ActionDescriptor> getActionDescriptors() {
+		HashMap<Long, ActionDescriptor> actionDescriptorMap = getPropertyByName(ACTION_DESCRIPTORS_PROP);
+		return actionDescriptorMap;
+	}
+	
+	public void addActionDescriptor(Long actionId, ActionDescriptor actionDescriptor) {
+		HashMap<Long, ActionDescriptor> actionDescriptorMap = getPropertyByName(ACTION_DESCRIPTORS_PROP);
+		if (actionDescriptorMap != null) {
+			actionDescriptorMap.put(actionId, actionDescriptor);
+			setPropertyByName(ACTION_DESCRIPTORS_PROP, actionDescriptorMap);
+		}
 	}
 
 	public String getServiceName() {
