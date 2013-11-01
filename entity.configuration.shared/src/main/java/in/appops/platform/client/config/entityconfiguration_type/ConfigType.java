@@ -1,10 +1,17 @@
 package in.appops.platform.client.config.entityconfiguration_type;
 
+import java.io.Serializable;
+
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.type.MetaType;
 import in.appops.platform.core.util.EntityList;
 
 public class ConfigType extends Entity {
+	
+	private static final long serialVersionUID = 1L;
+	
+	public static final String DEFAULT_VALUE = "defaultValue";
+	public static final String REGEX_VALIDATOR = "regexValidator";
 	
 	private Entity		parentConfigtype;
 	private EntityList	alternateProperties;
@@ -149,5 +156,30 @@ public class ConfigType extends Entity {
 	public Object getConfigType() {
 		return this.getPropertyByName(ConfigTypeConstant.CONFIGTYPEID);
 		
+	}
+	
+	/**
+	 * gets the default value
+	 * @return
+	 */
+	public Object getDefaultValue(){
+		return getPropertyByName(DEFAULT_VALUE);
+	}
+	
+	/**
+	 * gets the regex validator to be used for validations in a field
+	 * @return
+	 */
+	public String getRegexValidator(){
+		return getPropertyByName(REGEX_VALIDATOR);
+	}
+	
+	/**
+	 * 
+	 * @param propName
+	 * @param value
+	 */
+	public void addValueTypeProp(String propName, Object value){
+		this.setPropertyByName(propName, (Serializable)value);
 	}
 }
