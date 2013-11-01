@@ -1,10 +1,9 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.ImageFieldConfig;
-import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
 @SuppressWarnings("serial")
-public class ImageConfigType extends ConfigType {
+public class ImageConfigType extends BaseFieldConfigType {
 	
 	public static final String IMGFD_TITLE = "title";
 	public static final String IMGFD_BLOBID = "blobId";

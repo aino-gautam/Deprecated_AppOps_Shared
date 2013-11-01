@@ -1,10 +1,9 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.TextFieldConfig;
-import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
 @SuppressWarnings("serial")
-public class TextFieldConfigType extends ConfigType {
+public class TextFieldConfigType extends BaseFieldConfigType {
 	
 	public static final String TF_VISLINES = "visibleLines";
 	public static final String TF_CHARWIDTH = "charWidth";

@@ -2,10 +2,9 @@ package in.appops.platform.client.config.client_type;
 
 import in.appops.platform.client.config.entityconfiguration_type.basic.DateLabelFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
-import in.appops.platform.core.shared.Configuration;
 
 @SuppressWarnings("serial")
-public class DateLabelFieldConfig extends Configuration {
+public class DateLabelFieldConfig extends BaseFieldConfig {
 	
 	public DateLabelFieldConfig() {
 		super.setType(new MetaType(DateLabelFieldConfig.class));

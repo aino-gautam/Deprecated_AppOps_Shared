@@ -1,10 +1,9 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.ListBoxFieldConfig;
-import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
 @SuppressWarnings("serial")
-public class ListBoxFieldConfigType extends ConfigType {
+public class ListBoxFieldConfigType extends BaseFieldConfigType {
 	
 	public static final String LSTFD_VISIBLE_ITEM_CNT = "visibleItems";
 	public static final String LSTFD_ITEMS = "listOfItems";

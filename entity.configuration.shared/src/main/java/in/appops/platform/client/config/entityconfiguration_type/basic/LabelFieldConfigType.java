@@ -4,7 +4,7 @@ import in.appops.platform.client.config.client_type.LabelFieldConfig;
 import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
 @SuppressWarnings("serial")
-public class LabelFieldConfigType extends ConfigType {
+public class LabelFieldConfigType extends BaseFieldConfigType {
 	
 	public static final String LBLFD_ISWORDWRAP = "isWordWrap";
 	public static final String LBLFD_DISPLAYTXT = "displayTxt";

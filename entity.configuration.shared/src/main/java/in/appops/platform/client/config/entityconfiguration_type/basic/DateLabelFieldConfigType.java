@@ -1,12 +1,11 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import in.appops.platform.client.config.client_type.DateLabelFieldConfig;
+
 import java.util.Date;
 
-import in.appops.platform.client.config.client_type.DateLabelFieldConfig;
-import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
-
 @SuppressWarnings("serial")
-public class DateLabelFieldConfigType extends ConfigType {
+public class DateLabelFieldConfigType extends BaseFieldConfigType {
 	
 	public static final String DTLBL_DSPLY_FORM = "DisplayFormat";
 	public static final String LIVETIMESTAMP_DSPLY = "liveTimeStamp";

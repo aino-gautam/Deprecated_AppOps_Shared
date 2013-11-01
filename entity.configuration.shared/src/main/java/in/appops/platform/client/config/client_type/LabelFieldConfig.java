@@ -2,10 +2,9 @@ package in.appops.platform.client.config.client_type;
 
 import in.appops.platform.client.config.entityconfiguration_type.basic.LabelFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
-import in.appops.platform.core.shared.Configuration;
 
 @SuppressWarnings("serial")
-public class LabelFieldConfig extends Configuration {
+public class LabelFieldConfig extends BaseFieldConfig {
 	
 	public LabelFieldConfig() {
 		super.setType(new MetaType(LabelFieldConfig.class));
