@@ -12,10 +12,5 @@ public class BooleanConfigType extends ConfigType {
 		setParentConfigtype(BOOLEAN, false, this.getClass(), null, BooleanConfig.class);
 		addProperty(DEFAULT_VALUE, false, false, null, null, null);
 	}
-	
-	@Override
-	public Boolean getDefaultValue() {
-		return (Boolean) super.getDefaultValue();
-	}
 
 }

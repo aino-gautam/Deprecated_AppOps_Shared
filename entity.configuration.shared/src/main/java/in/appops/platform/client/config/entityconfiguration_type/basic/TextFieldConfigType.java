@@ -1,6 +1,5 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
-import in.appops.platform.client.config.client_type.BaseFieldConfig;
 import in.appops.platform.client.config.client_type.TextFieldConfig;
 import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
@@ -29,7 +28,7 @@ public class TextFieldConfigType extends ConfigType {
 	public static final String	TEXTFIELD		= "TextFieldConfig";
 	
 	public TextFieldConfigType() {
-		setParentConfigtype(TEXTFIELD, false, this.getClass(), BaseFieldConfig.class, TextFieldConfig.class);
+		setParentConfigtype(TEXTFIELD, false, this.getClass(), BaseFieldConfigType.class, TextFieldConfig.class);
 		addProperty(TF_VISLINES, 5, false, null, null, null);
 		addProperty(TF_CHARWIDTH, 100, false, null, null, null);
 		addProperty(TF_TYPE, TFTYPE_TXTBOX, false, null, null, null);
