@@ -20,7 +20,7 @@ public class TypeConstants {
 	public static final String SPACETYPECONFIGURATION = "Spacetypeconfiguration";
 	public static final String SPACEENUM = "SpaceEnum";
 	public static final String SPACESERVICEOPERATION = "Spaceservicoperation";
-	public static final String SPACESERVICES = "Spaceservice";
+	public static final String SPACESERVICES = "Spaceservices";
 	
 	public static final String CALENDAR = "Calendar";
 	public static final String EVENT = "Event";
@@ -48,4 +48,11 @@ public class TypeConstants {
 	public static final String MESSAGE = "Message";
 	public static final String MESSAGEPARTICIPANTS = "MessageParticipants";
 	
+	public static final String ACTIVITY = "Activity";
+	
+	public static final String DIAGRAM = "Diagram";
+	public static final String DIAGRAMTYPE = "DiagramType";
+	public static final String DIAGRAMTYPESHAPETYPES = "DiagramtypeShapetypes";
+	public static final String SHAPE = "Shape";
+	public static final String SHAPETYPE= "ShapeType";
 }

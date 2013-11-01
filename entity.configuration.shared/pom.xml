@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- POM file generated with GWT webAppCreator -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>entityconfigurationshared</groupId>
+	<artifactId>entityconf_shared</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>GWT Maven Archetype</name>
+
+	<properties>
+		<!-- Convenience property to set the GWT version -->
+		<gwtVersion>2.4.0</gwtVersion>
+		<!-- GWT needs at least java 1.5 -->
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>appdefinition</artifactId>
+			<version>31.10.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-spatial</artifactId>
+			<version>3.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-misc</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>2.4.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>2.4.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<classifier>sources</classifier>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.1.7.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guiceberry</groupId>
+			<artifactId>guiceberry</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-gwt</artifactId>
+			<version>13.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-assisted-inject</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>appops_shared</artifactId>
+			<version>08.10.2013</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>appops_platform</groupId> <artifactId>core</artifactId> 
+			<version>24.10.2013</version> </dependency> -->
+		<!-- for test case -->
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>core_test_100db</artifactId>
+			<version>28.10.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>blobstore</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>calendar</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>milind_appops_platform</groupId>
+			<artifactId>ems</artifactId>
+			<version>18.10.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>messenger</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>restaurant</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>calendar</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>contact</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>configuration</artifactId>
+			<version>31.10.2013</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>entitycache</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>inservice</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>media</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>social</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>spacemanagement</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>statics</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>useraccount</artifactId>
+			<version>14.09.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>usermessage</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+		<!-- Mahesh Dependencies -->
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>activity</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>email</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>deal</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>dating</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>entitybroadcast</artifactId>
+			<version>12.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>httpsessionservice</artifactId>
+			<version>17.10.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>searchservice</artifactId>
+			<version>17.10.2013</version>
+		</dependency>
+		<!-- Komal Dependencies -->
+
+		<!-- <dependency> <groupId>milind_appops_platform</groupId> <artifactId>entitystore</artifactId> 
+			<version>30.09.2013</version> </dependency> -->
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>entitystore_100db</artifactId>
+			<version>28.10.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>drawing</artifactId>
+			<version>26.06.2013</version>
+		</dependency>
+
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>blogging</artifactId>
+			<version>25.06.2013</version>
+		</dependency>
+		<dependency>
+			<groupId>appops_platform</groupId>
+			<artifactId>htmlappservice</artifactId>
+			<version>23.07.2013</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.gwtupload</groupId>
+			<artifactId>gwtupload</artifactId>
+			<version>0.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mailapi</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+
+
+	</dependencies>
+
+	<build>
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+		<finalName>entityconf_shared-${buildNumber}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>2.4.0</version>
+
+				<configuration>
+					<runTarget>hello.html</runTarget>
+					<hostedWebapp>${webappDirectory}</hostedWebapp>
+
+					<!-- what ever is needed to complie we can add them as below here. When 
+						nothing is specified we all module are complied -->
+
+					<modules>
+						<module>in.appops.platform.EntityConfigurationShared</module>
+					</modules>
+				</configuration>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
+				<version>2.1.1</version> <executions> <execution> <phase>compile</phase> 
+				<goals> <goal>exploded</goal> </goals> </execution> </executions> <configuration> 
+				<webappDirectory>${webappDirectory}</webappDirectory> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+				<configuration>
+					<format>{0,date,dd.MM.yyyy}</format>
+					<items>
+						<item>timestamp</item>
+					</items>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<file>target/entityconf_shared-${buildNumber}.jar</file>
+					<groupId>appops_platform</groupId>
+					<artifactId>entityconf_shared</artifactId>
+					<version>${buildNumber}</version>
+					<packaging>jar</packaging>
+					<repositoryId>10.10.10.100</repositoryId>
+					<url>http://10.10.10.100:8085/artifactory/libs-release-local</url>
+					<description>${description}</description>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <artifactId>maven-jar-plugin</artifactId> <configuration> 
+				<includes> <include>**</include> </includes> </configuration> </plugin> -->
+		</plugins>
+	</build>
+
+</project>

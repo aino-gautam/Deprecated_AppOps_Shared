@@ -2,6 +2,7 @@ package in.appops.platform.core.shared;
 
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.Property;
+import in.appops.platform.core.util.EntityList;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,6 +18,7 @@ public class OperationDescriptor extends Entity {
 	private final String		PARAMETER_MAP_PROP			= "parameters";
 	private final String		NAME_PROP					= "name";
 	private final String		MAPPED_TO					= "mappedTo";
+	private final String		ISAUTHERIZED					= "isAutherized";
 	private final String		PRE_FEATURE_DESCRIPTORS		= "preFeatureDescriptors";
 	
 	public final String SELFMSG = "selfMsg";
@@ -27,6 +29,8 @@ public class OperationDescriptor extends Entity {
 	public final String ACTIVITYSELFMSG = "activitySelfMsg";
 	public final String ACTIVITYGENERALMSG = "activityGeneralMsg";
 	public final String ACTIVITYPARTICIPANTMSG = "activityParticipantMsg";
+
+	public final String ASSOCIATED_TAGS = "associatedTags";
 	
 	private String OPERATIONID = "operationId";
 	
@@ -156,12 +160,12 @@ public class OperationDescriptor extends Entity {
 		setPropertyByName(PARTICIPANTMSG, participantMsg);
 	}
 	
-	public String getScope() {
-		return getPropertyByName(SCOPE);
+	public Boolean getIsAutherized() {
+		return getPropertyByName(ISAUTHERIZED);
 	}
 	
-	public void setScope(String scope) {
-		setPropertyByName(SCOPE, scope);
+	public void setIsAutherized(Boolean isAutherized) {
+		setPropertyByName(ISAUTHERIZED, isAutherized);
 	}
 	
 	public Long getOperationId() {
@@ -194,5 +198,13 @@ public class OperationDescriptor extends Entity {
 	
 	public void setActivityParticipantMsg(String participantMsg) {
 		setPropertyByName(ACTIVITYPARTICIPANTMSG, participantMsg);
+	}
+
+	public EntityList getAssociatedTags() {
+		return getPropertyByName(ASSOCIATED_TAGS);
+	}
+	
+	public void setAssociatedTags(EntityList associatedTagList) {
+		setPropertyByName(ASSOCIATED_TAGS, associatedTagList);
 	}
 }

@@ -9,6 +9,7 @@ package in.appops.platform.core.entity;
  */
 
 import in.appops.platform.core.entity.type.Type;
+import in.appops.platform.core.util.EntityGraphException;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import com.google.common.annotations.GwtCompatible;
 public class Entity extends Property<HashMap<String, Property<? extends Serializable>>> {
 	
 	private boolean	partial	= true;
+	private boolean isGraphEnabled = true;
 	
 	/**
 	 * @return the partial - defaults to true
@@ -53,7 +55,7 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 		
 	}
 	
-	public Type			type	= null;
+	public Type	type = null;
 
 	
 	/**
@@ -78,6 +80,9 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 		return getValue().get(name);
 	}
 	
+	public void removeProperty(String name){
+		getValue().remove(name);
+	}
 	/**
 	 * @param name
 	 *            - name of the property, can't be null
@@ -110,7 +115,6 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 	 * 
 	 * @return
 	 */
-	
 	public HashMap<String, Property<? extends Serializable>> getValue() {
 		if (value == null) {
 			setValue(new HashMap<String, Property<? extends Serializable>>());
@@ -148,6 +152,174 @@ public class Entity extends Property<HashMap<String, Property<? extends Serializ
 			
 			return tempProp != null ? tempProp.getValue() : null;
 		}
+	}
+
+	/**
+	 * method which will traverse the name parameter passed and will return the last param value
+	 * if exist else throw {@link EntityGraphException}
+	 * @param name
+	 * @param entity
+	 * @return
+	 * @throws EntityGraphException
+	 */
+	@SuppressWarnings("unchecked")
+	public <M extends Serializable> M getGraphPropertyValue(String name,Entity entity) throws EntityGraphException {
+		if(isGraphEnabled){
+			String[] splitter = null;
+			if(name != null){
+				String tempString = name;
+				tempString = tempString.replace(".", "##");
+				splitter = tempString.split("##");
+				if(splitter != null){
+					if(splitter.length != 0){
+						String parentPropName = splitter[0];
+						if(parentPropName!=null){
+							Serializable prop ;
+							if(entity == null)
+								prop = getPropertyByName(parentPropName);
+							else
+								prop = entity.getPropertyByName(parentPropName);
+
+							if(prop != null){
+								if (prop instanceof Entity){
+									if(!(splitter.length >1)){
+										return (M) prop;
+									}
+									else{
+										name = name.substring(name.indexOf(".")+1);
+										return getGraphPropertyValue(name, (Entity)prop);
+									}
+								}
+								else {
+									return (M) prop;
+								}
+							}
+							else {
+								EntityGraphException graphException = new EntityGraphException();
+								graphException.setMsg("Property to fetch value null");
+								throw graphException;
+							}
+						}
+					}
+				}
+			}
+			else {
+				EntityGraphException graphException = new EntityGraphException();
+				graphException.setMsg("Property name to be fetch value is null");
+				throw graphException;
+			}
+		}
+		else{
+			EntityGraphException graphException = new EntityGraphException();
+			graphException.setMsg("Graph methods not supported");
+			throw graphException;
+		}
+		return null;
+	}
+
+	/**
+	 * method which will traverse the name parameter passed and will set the param value
+	 * if its previous entity exist else throw {@link EntityGraphException}
+	 * @param name
+	 * @param val
+	 * @param entity
+	 * @throws EntityGraphException
+	 */
+	@SuppressWarnings("unchecked")
+	public <M extends Serializable> void setGraphPropertyValue(String name, M val, Entity entity) throws EntityGraphException {
+		if(isGraphEnabled){
+			String[] splitter = null;
+			if(name != null){
+				String tempString = name;
+				tempString = tempString.replace(".", "##");
+				splitter = tempString.split("##");
+				if(splitter != null){
+					if(splitter.length != 0){
+						String parentPropName = splitter[0];
+						if(parentPropName!=null){
+							Serializable prop ;
+
+							if(entity == null)
+								prop = getPropertyByName(parentPropName);
+							else
+								prop = entity.getPropertyByName(parentPropName);
+
+							if(prop != null){
+								if (prop instanceof Entity){
+									if(!(splitter.length >1)){
+										((Entity)prop).setPropertyByName(parentPropName, val);
+									}
+									else{
+										name = name.substring(name.indexOf(".")+1);
+										setGraphPropertyValue(name, val,(Entity) prop);
+									}
+								}
+								else {
+									if(entity == null) {
+										entity = this;
+									}
+									Property<M> tempProp = (Property<M>) entity.getProperty(name);
+									tempProp.setValue(val);
+									entity.setProperty(tempProp);
+								}
+							}
+							else {
+								if(!(splitter.length >1)){
+									Property<M> tempProp; 
+
+									if(entity == null)
+										tempProp= (Property<M>) getProperty(name);
+									else {
+										tempProp= (Property<M>) entity.getProperty(name);
+									}
+
+									if (tempProp == null)
+										tempProp = new Property<M>(name, val);
+									else
+										tempProp.setValue(val);
+
+									if(entity == null)
+										setProperty(tempProp);
+									else{
+										if(!(splitter.length >1)){
+											entity.setProperty(tempProp);
+										}
+										else{
+											name = name.substring(name.indexOf(".")+1);
+											setGraphPropertyValue(name, val,(Entity) prop);
+										}
+									}
+								}
+								else{
+									EntityGraphException graphException = new EntityGraphException();
+									graphException.setMsg("Property to set value null");
+									throw graphException;
+								}
+							}
+						}
+					}
+				}
+			}
+		}else{
+			EntityGraphException graphException = new EntityGraphException();
+			graphException.setMsg("Graph methods not supported");
+			throw graphException;
+		}
+	}
+
+
+	/**
+	 * @return the isGraphEnabled
+	 */
+	public boolean isGraphEnabled() {
+		return isGraphEnabled;
+	}
+
+	/**
+	 * @param isGraphEnabled the isGraphEnabled to set
+	 */
+	public void setGraphEnabled(boolean isGraphEnabled) {
+		this.isGraphEnabled = isGraphEnabled;
 	}
 	
 	/*@Override
