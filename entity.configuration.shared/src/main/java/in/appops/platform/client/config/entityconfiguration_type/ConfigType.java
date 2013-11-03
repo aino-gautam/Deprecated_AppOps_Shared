@@ -6,6 +6,11 @@ import in.appops.platform.core.util.EntityList;
 
 public class ConfigType extends Entity {
 	
+	private static final long serialVersionUID = 1L;
+	
+	public static final String DEFAULT_VALUE = "defaultValue";
+	public static final String REGEX_VALIDATOR = "regexValidator";
+	
 	private Entity		parentConfigtype;
 	private EntityList	alternateProperties;
 	
