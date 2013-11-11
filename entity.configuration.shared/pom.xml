@@ -21,6 +21,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>appops_platform</groupId>
+			<artifactId>appops_client</artifactId>
+			<version>08.10.2013</version>
+		</dependency>
+		<dependency>
+			<groupId>appops_platform</groupId>
 			<artifactId>appdefinition</artifactId>
 			<version>31.10.2013</version>
 		</dependency>
