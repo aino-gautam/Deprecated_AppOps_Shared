@@ -1,6 +1,5 @@
 package in.appops.platform.client.config.client_type;
 
-import in.appops.platform.client.config.entityconfiguration_type.basic.IntellithoughtFieldConfigType;
 import in.appops.platform.client.config.entityconfiguration_type.basic.QueryThoughtFieldConfigType;
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.type.MetaType;
