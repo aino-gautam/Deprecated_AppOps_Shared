@@ -3,6 +3,11 @@ package in.appops.platform.client.config.entityconfiguration_type.basic;
 import in.appops.platform.client.config.client_type.IntegerConfig;
 import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
+/**
+ * @author pallavi@ensarm.com
+ * @createdOn 1-Nov-2013
+ */
+
 public class IntegerConfigType extends ConfigType {
 	
 	public static final String MAX_VALUE = "maxValue";

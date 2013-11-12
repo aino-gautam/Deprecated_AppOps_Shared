@@ -3,6 +3,10 @@ package in.appops.platform.client.config.entityconfiguration_type.basic;
 import in.appops.platform.client.config.client_type.StringConfig;
 import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
+/**
+ * @author pallavi@ensarm.com
+ * @createdOn 1-Nov-2013
+ */
 @SuppressWarnings("serial")
 public class StringConfigType extends ConfigType {
 	

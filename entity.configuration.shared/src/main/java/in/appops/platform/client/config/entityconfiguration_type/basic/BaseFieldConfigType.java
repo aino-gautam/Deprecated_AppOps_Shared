@@ -3,6 +3,11 @@ package in.appops.platform.client.config.entityconfiguration_type.basic;
 import in.appops.platform.client.config.client_type.BaseFieldConfig;
 import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
+/**
+ * @author pallavi@ensarm.com
+ * @createdOn 1-Nov-2013
+ */
+
 public class BaseFieldConfigType extends ConfigType{
 	
 	private static final long serialVersionUID = 1L;
@@ -45,7 +50,6 @@ public class BaseFieldConfigType extends ConfigType{
 		addProperty(BF_PCLS, "baseFieldCss", false, null, null, null);
 		addProperty(BF_DCLS, "baseFieldDepenentCss", false, null, null, null);
 		addProperty(BF_SHOW_VALID_FIELD, false, false, null, null, null);
-		addProperty(BF_ERRPOS, BF_TOP, false, null, null, null);
 		addProperty(BF_ERRPOS, BF_TOP, false, null, null, null);
 		addProperty(BF_SUGGESTION_POS, BF_TOP, false, null, null, null);
 		addProperty(BF_SUGGESTION_TEXT, "Enter field value text", false, null, null, null);

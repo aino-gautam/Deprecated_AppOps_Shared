@@ -4,6 +4,11 @@ import in.appops.platform.client.config.client_type.DateLabelFieldConfig;
 
 import java.util.Date;
 
+/**
+ * @author pallavi@ensarm.com
+ * @createdOn 1-Nov-2013
+ */
+
 @SuppressWarnings("serial")
 public class DateLabelFieldConfigType extends BaseFieldConfigType {
 	

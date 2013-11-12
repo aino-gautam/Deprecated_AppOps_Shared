@@ -1,8 +1,11 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.LabelFieldConfig;
-import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
 
+/**
+ * @author pallavi@ensarm.com
+ * @createdOn 1-Nov-2013
+ */
 @SuppressWarnings("serial")
 public class LabelFieldConfigType extends BaseFieldConfigType {
 	
