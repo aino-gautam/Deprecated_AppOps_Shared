@@ -10,6 +10,7 @@ import com.google.common.annotations.GwtCompatible;
 
 /**
  * @author Debasish Padhy Created it on 13-Jun-2013
+ * @modifiedBy milind@ensarm.com
  * Derived types will be used to specify predefined entity structures such as enumerations etc. 
  */
 @GwtCompatible
