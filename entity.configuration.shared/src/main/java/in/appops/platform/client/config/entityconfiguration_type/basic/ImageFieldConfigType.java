@@ -16,7 +16,11 @@ public class ImageFieldConfigType extends BaseFieldConfigType {
 	
 	public ImageFieldConfigType() {
 		setParentConfigtype(IMAGE, false, this.getClass(), BaseFieldConfigType.class, ImageFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
+
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(IMGFD_TITLE, "User", false, null, null, null);
 		viewConfigType.addProperty(IMGFD_BLOBID, "images/userIcon.jpg", false, null, null, null);

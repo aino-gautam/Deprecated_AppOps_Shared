@@ -30,7 +30,10 @@ public class SpinnerFieldConfigType extends BaseFieldConfigType{
 	
 	public SpinnerFieldConfigType() {
 		setParentConfigtype(SPINNERCONFIG, false, this.getClass(), BaseFieldConfigType.class, SpinnerFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
 		ViewConfigType viewConfigType = new ViewConfigType();
 		
 		viewConfigType.addProperty(SP_TYPE, SP_TYPENUMERIC, false, null, null, null);

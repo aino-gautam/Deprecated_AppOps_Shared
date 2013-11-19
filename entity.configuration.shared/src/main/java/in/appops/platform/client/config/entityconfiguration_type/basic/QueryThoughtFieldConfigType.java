@@ -22,7 +22,10 @@ public class QueryThoughtFieldConfigType extends IntellithoughtFieldConfigType{
 	
 	public QueryThoughtFieldConfigType() {
 		setParentConfigtype(QUERYTHOUGHTCONFIG, false, this.getClass(), IntellithoughtFieldConfigType.class, QueryThoughtFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
 		ViewConfigType viewConfigType = new ViewConfigType();
 		
 		Entity serviceEnt = new Entity();
@@ -38,7 +41,6 @@ public class QueryThoughtFieldConfigType extends IntellithoughtFieldConfigType{
 		addProperty(MODEL, new ModelConfigType());
 		addProperty(VIEW, viewConfigType);
 		addProperty(PRESENTER, new PresenterConfigType());
-		
 	}
 
 }

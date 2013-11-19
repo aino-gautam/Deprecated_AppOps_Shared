@@ -22,7 +22,10 @@ public class StateFieldConfigType extends BaseFieldConfigType{
 	
 	public StateFieldConfigType() {
 		setParentConfigtype(STATEFIELD, false, this.getClass(), BaseFieldConfigType.class, StateFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
 		ModelConfigType modelConfigType = new ModelConfigType();
 		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "appdefinition.AppDefinitionService.getAllServiceList", false, null, null, null);
 		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);

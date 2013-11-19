@@ -29,7 +29,10 @@ public class IntellithoughtFieldConfigType extends BaseFieldConfigType{
 	
 	public IntellithoughtFieldConfigType() {
 		setParentConfigtype(INTELLITHOUGHTCONFIG, false, this.getClass(), BaseFieldConfigType.class, IntellithoughtFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
 		ModelConfigType modelConfigType = new ModelConfigType();
 		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "spacemanagement.SpaceManagementService.getLinkSuggestions", false, null, null, null);
 		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
@@ -51,6 +54,5 @@ public class IntellithoughtFieldConfigType extends BaseFieldConfigType{
 		addProperty(MODEL, modelConfigType);
 		addProperty(PRESENTER, new PresenterConfigType());
 		addProperty(VIEW, viewConfigType);
-	
 	}
 }

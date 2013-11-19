@@ -24,7 +24,10 @@ public class MediaFieldConfigType extends BaseFieldConfigType{
 	
 	public MediaFieldConfigType() {
 		setParentConfigtype(MEDIACONFIG, false, this.getClass(), BaseFieldConfigType.class, MediaFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(MF_MEDIAIMG_BLOB, "images/Media.png", false, null, null, null);
 		viewConfigType.addProperty(MF_MEDIAIMG_DCLS, "fadeInUp", false, null, null, null);
@@ -35,7 +38,6 @@ public class MediaFieldConfigType extends BaseFieldConfigType{
 		addProperty(MODEL, new ModelConfigType());
 		addProperty(VIEW, viewConfigType);
 		addProperty(PRESENTER, new PresenterConfigType());
-	
 	}
 
 }

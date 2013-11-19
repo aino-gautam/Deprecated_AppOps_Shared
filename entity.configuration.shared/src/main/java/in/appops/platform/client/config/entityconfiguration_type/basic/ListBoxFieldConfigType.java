@@ -25,7 +25,11 @@ public class ListBoxFieldConfigType extends BaseFieldConfigType {
 	
 	public ListBoxFieldConfigType() {
 		setParentConfigtype(LISTBOX, false, this.getClass(), BaseFieldConfigType.class, ListBoxFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
+
 		ModelConfigType modelConfigType = new ModelConfigType();
 		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "appdefinition.AppDefinitionService.getAllServiceList", false, null, null, null);
 		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
@@ -39,7 +43,6 @@ public class ListBoxFieldConfigType extends BaseFieldConfigType {
 		viewConfigType.addProperty(BF_PCLS, "dynamicUIListBox", false, null, null, null);
 		viewConfigType.addProperty(LSTFD_LOADERIMG_PCLS, "dynamicUIListBoxLoader", false, null, null, null);
 		viewConfigType.addProperty(BF_DEFVAL, "--Select service--", false, null, null, null);
-		
 		
 		addProperty(MODEL, modelConfigType);
 		addProperty(VIEW, viewConfigType);

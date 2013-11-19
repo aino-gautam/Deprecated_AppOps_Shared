@@ -23,7 +23,10 @@ public class DateLabelFieldConfigType extends BaseFieldConfigType {
 	
 	public DateLabelFieldConfigType() {
 		setParentConfigtype(DATELABEL, false, this.getClass(), BaseFieldConfigType.class, DateLabelFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties(){
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(DTLBL_DSPLY_FORM, DATETIME_DSPLY, false, null, null, null);
 		//viewConfigType.addAlternateProperty(DTLBL_DSPLY_FORM, LIVETIMESTAMP_DSPLY, false, null, null, null);

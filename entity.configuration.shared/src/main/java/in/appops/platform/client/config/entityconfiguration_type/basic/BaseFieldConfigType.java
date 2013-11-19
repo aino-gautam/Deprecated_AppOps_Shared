@@ -50,8 +50,11 @@ public class BaseFieldConfigType extends ConfigType{
 	
 	public BaseFieldConfigType() {
 		setParentConfigtype(BASEFIELDCONFIG, false, this.getClass(), null, BaseFieldConfig.class);
-		addProperty(BF_PCLS, "baseFieldCss", false, null, null, null);
-		addProperty(BF_DCLS, "baseFieldDepenentCss", false, null, null, null);
+	}
+	
+	public void populateProperties(){
+		addProperty(BF_PCLS, "baseFieldPrimaryCss", false, null, null, null);
+		addProperty(BF_DCLS, "baseFieldDependentCss", false, null, null, null);
 		addProperty(BF_SHOW_VALID_FIELD, false, false, null, null, null);
 		addProperty(BF_ERRPOS, BF_TOP, false, null, null, null);
 		addProperty(BF_SUGGESTION_POS, BF_TOP, false, null, null, null);
@@ -66,11 +69,9 @@ public class BaseFieldConfigType extends ConfigType{
 		addProperty(BF_ALLOWBLNK, false , false, null, null, null);
 		addProperty(BF_BINDPROP, "name" , false, null, null, null);
 		addProperty(BF_ERRMSGICONCLS, "errorIconCss" , false, null, null, null);
-		
-		//addAlternateProperties();
 	}
 	
-	private void addAlternateProperties(){
+	public void populateAlternateProperties(){
 		
 		addAlternateProperty(BF_ERRPOS, BF_BOTTOM, false, null, null, null);
 		addAlternateProperty(BF_ERRPOS, BF_SIDE, false, null, null, null);

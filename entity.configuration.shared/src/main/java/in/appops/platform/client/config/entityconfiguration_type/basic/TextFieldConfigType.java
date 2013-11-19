@@ -33,7 +33,11 @@ public class TextFieldConfigType extends BaseFieldConfigType {
 	
 	public TextFieldConfigType() {
 		setParentConfigtype(TEXTFIELD, false, this.getClass(), BaseFieldConfigType.class, TextFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
+
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(BF_PCLS, "textFieldPreview", false, null, null, null);
 		viewConfigType.addProperty(TF_VISLINES, 5, false, null, null, null);

@@ -20,7 +20,10 @@ public class ToggleImageFieldConfigType extends BaseFieldConfigType{
 	
 	public ToggleImageFieldConfigType() {
 		setParentConfigtype(TOGGLEIMAGECONFIG, false, this.getClass(), BaseFieldConfigType.class, ToggleImageFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(TIMGFD_UPSTATE_URL, "images/disclosureRightArrow.png", false, null, null, null);
 		viewConfigType.addProperty(TIMGFD_UPSTATE_TITLE,"down", false, null, null, null);

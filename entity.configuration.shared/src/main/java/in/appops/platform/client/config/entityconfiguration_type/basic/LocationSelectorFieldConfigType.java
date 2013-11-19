@@ -29,7 +29,11 @@ public class LocationSelectorFieldConfigType extends BaseFieldConfigType{
 	
 	public LocationSelectorFieldConfigType() {
 		setParentConfigtype(LOCATIONSELECTORCONFIG, false, this.getClass(), BaseFieldConfigType.class, LocationSelectorFieldConfig.class);
-		
+	}
+	
+	@Override
+	public void populateProperties() {
+
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(LOCNFD_ZOOMLEVEL, 8, false, null, null, null);
 		viewConfigType.addProperty(LOCFD_WIDTH, "400px", false, null, null, null);

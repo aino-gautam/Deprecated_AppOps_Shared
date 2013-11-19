@@ -26,7 +26,10 @@ public class DatePickerFieldConfigType extends BaseFieldConfigType{
 	
 	public DatePickerFieldConfigType() {
 		setParentConfigtype(DATEPICKERCONFIG, false, this.getClass(), BaseFieldConfigType.class, DatePickerFieldConfig.class);
-
+	}
+	
+	@Override
+	public void populateProperties() {
 		ViewConfigType viewConfigType = new ViewConfigType();
 		viewConfigType.addProperty(BF_DEFVAL, "01.07.2013", false, null, null, null);
 		viewConfigType.addProperty(DP_MAXDATE, "03.08.2013", false, null, null, null);
