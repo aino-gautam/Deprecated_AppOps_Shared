@@ -23,12 +23,19 @@ public class MediaFieldConfigType extends BaseFieldConfigType{
 	public static final String	MEDIACONFIG		= "MediaFieldConfig";
 	
 	public MediaFieldConfigType() {
-		setParentConfigtype(MEDIACONFIG, false, this.getClass(), null, MediaFieldConfig.class);
-		addProperty(MF_MEDIAIMG_BLOB, "images/Media.png", false, null, null, null);
-		addProperty(MF_MEDIAIMG_DCLS, "fadeInUp", false, null, null, null);
-		addProperty(MF_MEDIAIMG_PCLS, "mediaImage", false, null, null, null);
-		addProperty(MF_ISPROFILE_IMG, true, false, null, null, null);
-		addProperty(MF_FILEUPLOADER_CLS, "appops-webMediaAttachment", false, null, null, null);
+		setParentConfigtype(MEDIACONFIG, false, this.getClass(), BaseFieldConfigType.class, MediaFieldConfig.class);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(MF_MEDIAIMG_BLOB, "images/Media.png", false, null, null, null);
+		viewConfigType.addProperty(MF_MEDIAIMG_DCLS, "fadeInUp", false, null, null, null);
+		viewConfigType.addProperty(MF_MEDIAIMG_PCLS, "mediaImage", false, null, null, null);
+		viewConfigType.addProperty(MF_ISPROFILE_IMG, true, false, null, null, null);
+		viewConfigType.addProperty(MF_FILEUPLOADER_CLS, "appops-webMediaAttachment", false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(VIEW, viewConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
+	
 	}
 
 }

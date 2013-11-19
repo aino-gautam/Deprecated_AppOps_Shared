@@ -29,17 +29,28 @@ public class IntellithoughtFieldConfigType extends BaseFieldConfigType{
 	
 	public IntellithoughtFieldConfigType() {
 		setParentConfigtype(INTELLITHOUGHTCONFIG, false, this.getClass(), BaseFieldConfigType.class, IntellithoughtFieldConfig.class);
-		addProperty(BF_PCLS, "intelliThoughtField", false, null, null, null);
-		addProperty(BF_SUGGESTION_TEXT, "Any thoughts", false, null, null, null);
-		addProperty(FIRE_EDITINITIATED_EVENT, true, false, null, null, null);
-		addProperty(FIRE_THREECHARENTERED_EVENT, true, false, null, null, null);
-		addProperty(FIRE_WORDENTERED_EVENT, true, false, null, null, null);
-		addProperty(INTLTHT_ENTPROP, "name", false, null, null, null);
-		addProperty(INTLTHT_OPRTION, "spacemanagement.SpaceManagementService.getLinkSuggestions", false, null, null, null);
-		addProperty(INTLTHT_MAXCHARLEN, 3, false, null, null, null);
-		addProperty(INTLTHT_QUERY_MAXRESULT, 10, false, null, null, null);
-		addProperty(BF_ID, "intelliTextField", false, null, null, null);
-		addProperty(INTLTHT_SUGGESTIONLBL_PCLS, "appops-intelliThoughtSuggestionLabel", false, null, null, null);
-		addProperty(INTLTHT_SUGGESTIONPOPUP_PCLS, "appops-intelliThoughtLinkedSuggestionPopup", false, null, null, null);
+		
+		ModelConfigType modelConfigType = new ModelConfigType();
+		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "spacemanagement.SpaceManagementService.getLinkSuggestions", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.QUERYNAME, "getServicesForAugs", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.QUERYPARAM, "queryParam", false, null, null, null);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(BF_PCLS, "intelliThoughtField", false, null, null, null);
+		viewConfigType.addProperty(BF_SUGGESTION_TEXT, "Any thoughts", false, null, null, null);
+		viewConfigType.addProperty(FIRE_EDITINITIATED_EVENT, true, false, null, null, null);
+		viewConfigType.addProperty(FIRE_THREECHARENTERED_EVENT, true, false, null, null, null);
+		viewConfigType.addProperty(FIRE_WORDENTERED_EVENT, true, false, null, null, null);
+		viewConfigType.addProperty(INTLTHT_ENTPROP, "name", false, null, null, null);
+		viewConfigType.addProperty(INTLTHT_MAXCHARLEN, 3, false, null, null, null);
+		viewConfigType.addProperty(BF_ID, "intelliTextField", false, null, null, null);
+		viewConfigType.addProperty(INTLTHT_SUGGESTIONLBL_PCLS, "appops-intelliThoughtSuggestionLabel", false, null, null, null);
+		viewConfigType.addProperty(INTLTHT_SUGGESTIONPOPUP_PCLS, "appops-intelliThoughtLinkedSuggestionPopup", false, null, null, null);
+		
+		addProperty(MODEL, modelConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
+		addProperty(VIEW, viewConfigType);
+	
 	}
 }

@@ -29,15 +29,27 @@ public class SpinnerFieldConfigType extends BaseFieldConfigType{
 	public static final String	SPINNERCONFIG		= "SpinnerFieldConfig";
 	
 	public SpinnerFieldConfigType() {
-		setParentConfigtype(SPINNERCONFIG, false, this.getClass(), null, SpinnerFieldConfig.class);
-		addProperty(SP_TYPE, SP_TYPENUMERIC, false, null, null, null);
-		addProperty(SP_STEP, 3, false, null, null, null);
-		addProperty(SP_UNIT, "%", false, null, null, null);
-		addProperty(SP_CIRCULAR, true, false, null, null, null);
-		addProperty(BF_DEFVAL, 3F, false, null, null, null);
-		addProperty(BF_ERRPOS, BF_BOTTOM, false, null, null, null);
-		addProperty(SP_ALLOWDEC, false, false, null, null, null);
-		addProperty(BF_VALIDATEONCHANGE, true, false, null, null, null);
+		setParentConfigtype(SPINNERCONFIG, false, this.getClass(), BaseFieldConfigType.class, SpinnerFieldConfig.class);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		
+		viewConfigType.addProperty(SP_TYPE, SP_TYPENUMERIC, false, null, null, null);
+		//viewConfigType.addAlternateProperty(SP_TYPE, SP_TYPELIST, false, null, null, null);
+		
+		viewConfigType.addProperty(SP_STEP, 3, false, null, null, null);
+		viewConfigType.addProperty(SP_UNIT, "km", false, null, null, null);
+		viewConfigType.addProperty(SP_CIRCULAR, true, false, null, null, null);
+		viewConfigType.addProperty(BF_DEFVAL, 25, false, null, null, null);
+		viewConfigType.addProperty(BF_ERRPOS, BF_BOTTOM, false, null, null, null);
+		viewConfigType.addProperty(SP_ALLOWDEC, false, false, null, null, null);
+		viewConfigType.addProperty(BF_VALIDATEONCHANGE, true, false, null, null, null);
+		viewConfigType.addProperty(BF_VALUETYPE, "DecimalValueType", false, null, null, null);
+		viewConfigType.addProperty(DecimalConfigType.MAX_VALUE, 50, false, null, null, null);
+		viewConfigType.addProperty(DecimalConfigType.MIN_VALUE, 15, false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(VIEW, viewConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
 	}
 	
 

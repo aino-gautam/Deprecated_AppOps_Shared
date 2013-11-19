@@ -15,10 +15,19 @@ public class LabelFieldConfigType extends BaseFieldConfigType {
 	public static final String	LABEL		= "LabelFieldConfig";
 	
 	public LabelFieldConfigType() {
+		
 		setParentConfigtype(LABEL, false, this.getClass(), BaseFieldConfigType.class, LabelFieldConfig.class);
-		addProperty(LBLFD_ISWORDWRAP, true, false, null, null, null);
-		addProperty(LBLFD_DISPLAYTXT, "Label Text", false, null, null, null);
-		addProperty(LBLFD_TITLE, 500, false, null, null, null);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(LBLFD_ISWORDWRAP, true, false, null, null, null);
+		viewConfigType.addProperty(LBLFD_DISPLAYTXT, "I am a Label Field", false, null, null, null);
+		viewConfigType.addProperty(LBLFD_TITLE, 500, false, null, null, null);
+		viewConfigType.addProperty(BF_PCLS, "labelFieldPreview", false, null, null, null);
+		
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(PRESENTER, new PresenterConfigType());
+		addProperty(VIEW, viewConfigType);
 	}
 	
 }

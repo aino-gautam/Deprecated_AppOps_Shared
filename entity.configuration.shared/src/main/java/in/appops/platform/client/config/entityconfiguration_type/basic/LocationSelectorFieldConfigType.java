@@ -28,18 +28,24 @@ public class LocationSelectorFieldConfigType extends BaseFieldConfigType{
 	public static final String	LOCATIONSELECTORCONFIG		= "LocationSelectorFieldConfig";
 	
 	public LocationSelectorFieldConfigType() {
-		setParentConfigtype(LOCATIONSELECTORCONFIG, false, this.getClass(), null, LocationSelectorFieldConfig.class);
-		addProperty(LOCNFD_ZOOMLEVEL, 8, false, null, null, null);
-		addProperty(LOCFD_WIDTH, "400px", false, null, null, null);
-		addProperty(LOCNFD_HEIGHT, "200px", false, null, null, null);
-		addProperty(LOCNFD_LATITUDE, 18.5398, false, null, null, null);
-		addProperty(LOCNFD_LONGITUDE, 73.9081, false, null, null, null);
-		addProperty(LOCNFD_SHOWINPOPUP, true, false, null, null, null);
-		addProperty(LOCNFD_DONEBTN_CSS, "appops-Button", false, null, null, null);
-		addProperty(LOCNFD_LOCATION_IMG_CSS, "locationImage", false, null, null, null);
-		addProperty(LOCNFD_SEARCHBOX_PCLS, "locationSearchBox", false, null, null, null);
-		addProperty(LOCNFD_SEARCHBOX_DCLS, "fadeInRight", false, null, null, null);
-		addProperty(BF_ERRPOS, BF_ERRINLINE, false, null, null, null);
-		addProperty(BF_INVLDMSG, "Invalid location", false, null, null, null);
+		setParentConfigtype(LOCATIONSELECTORCONFIG, false, this.getClass(), BaseFieldConfigType.class, LocationSelectorFieldConfig.class);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(LOCNFD_ZOOMLEVEL, 8, false, null, null, null);
+		viewConfigType.addProperty(LOCFD_WIDTH, "400px", false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_HEIGHT, "200px", false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_LATITUDE, 18.5398, false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_LONGITUDE, 73.9081, false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_SHOWINPOPUP, true, false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_DONEBTN_CSS, "appops-Button", false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_LOCATION_IMG_CSS, "locationImage", false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_SEARCHBOX_PCLS, "locationSearchBox", false, null, null, null);
+		viewConfigType.addProperty(LOCNFD_SEARCHBOX_DCLS, "fadeInRight", false, null, null, null);
+		viewConfigType.addProperty(BF_ERRPOS, BF_ERRINLINE, false, null, null, null);
+		viewConfigType.addProperty(BF_INVLDMSG, "Invalid location", false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(VIEW, viewConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
 	}
 }

@@ -19,12 +19,17 @@ public class ToggleImageFieldConfigType extends BaseFieldConfigType{
 	public static final String	TOGGLEIMAGECONFIG		= "ToggleImageFieldConfig";
 	
 	public ToggleImageFieldConfigType() {
-		setParentConfigtype(TOGGLEIMAGECONFIG, false, this.getClass(), null, ToggleImageFieldConfig.class);
-		addProperty(TIMGFD_UPSTATE_URL, "images/pinkHeart.jpg", false, null, null, null);
-		addProperty(TIMGFD_UPSTATE_TITLE,"unlike", false, null, null, null);
-		addProperty(TIMGFD_DWNSTATE_URL, "images/grayHeart.jpg", false, null, null, null);
-		addProperty(TIMGFD_DWNSTATE_TITLE,"like", false, null, null, null);
-		addProperty(TIMGFD_STATEIMG_PCLS,"toggleImageCss", false, null, null, null);
+		setParentConfigtype(TOGGLEIMAGECONFIG, false, this.getClass(), BaseFieldConfigType.class, ToggleImageFieldConfig.class);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(TIMGFD_UPSTATE_URL, "images/disclosureRightArrow.png", false, null, null, null);
+		viewConfigType.addProperty(TIMGFD_UPSTATE_TITLE,"down", false, null, null, null);
+		viewConfigType.addProperty(TIMGFD_DWNSTATE_URL, "images/disclosureDownArrow.png", false, null, null, null);
+		viewConfigType.addProperty(TIMGFD_DWNSTATE_TITLE,"up", false, null, null, null);
+		viewConfigType.addProperty(TIMGFD_STATEIMG_PCLS,"toggleImageFieldPreview", false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(PRESENTER, new PresenterConfigType());
+		addProperty(VIEW, viewConfigType);
 	}
-
 }

@@ -24,10 +24,17 @@ public class GroupFieldConfigType extends BaseFieldConfigType{
 	public static final String	GROUPFIELDCONFIG		= "GroupFieldConfig";
 	
 	public GroupFieldConfigType() {
-		setParentConfigtype(GROUPFIELDCONFIG, false, this.getClass(), null, GroupFieldConfig.class);
-		addProperty(GF_TYPE, GFTYPE_SINGLE_SELECT, false, null, null, null);
-		addProperty(GF_ALIGNMENT,GF_ALIGN_VERTICAL, false, null, null, null);
-		addProperty(GF_LIMIT, 3, false, null, null, null);
+		setParentConfigtype(GROUPFIELDCONFIG, false, this.getClass(), BaseFieldConfigType.class, GroupFieldConfig.class);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		
+		viewConfigType.addProperty(GF_TYPE, GFTYPE_SINGLE_SELECT, false, null, null, null);
+		//viewConfigType.addAlternateProperty(GF_TYPE,GFTYPE_MULTISELECT, false, null, null, null);
+		
+		viewConfigType.addProperty(GF_ALIGNMENT,GF_ALIGN_VERTICAL, false, null, null, null);
+		//viewConfigType.addAlternateProperty(GF_ALIGNMENT,GF_ALIGN_HORIZONTAL, false, null, null, null);
+		
+		viewConfigType.addProperty(GF_LIMIT, 3, false, null, null, null);
 		
 		ArrayList<String> listOfItems = new ArrayList<String>();
 		listOfItems.add("radio1");
@@ -35,7 +42,11 @@ public class GroupFieldConfigType extends BaseFieldConfigType{
 		listOfItems.add("radio3");
 		listOfItems.add("radio4");
 		
-		addProperty(GF_LIST_OF_ITEMS,listOfItems, false, null, null, null);
-		addProperty(GF_ID, "testGroupField", false, null, null, null);
+		viewConfigType.addProperty(GF_LIST_OF_ITEMS,listOfItems, false, null, null, null);
+		viewConfigType.addProperty(GF_ID, "testGroupField", false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(PRESENTER, new PresenterConfigType());
+		addProperty(VIEW, viewConfigType);
 	}
 }

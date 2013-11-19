@@ -21,13 +21,23 @@ public class StateFieldConfigType extends BaseFieldConfigType{
 	public static final String	STATEFIELD		= "StateFieldConfig";
 	
 	public StateFieldConfigType() {
-		setParentConfigtype(STATEFIELD, false, this.getClass(), null, StateFieldConfig.class);
-		addProperty(IS_STATIC_BOX, false, false, null, null, null);
-		addProperty(IS_SEARCH_QUERY, false, false, null, null, null);
-		addProperty(IS_AUTOSUGGESTION, false, false, null, null, null);
-		addProperty(STFD_QUERYNAME, "getAllSpaces", false, null, null, null);
-		addProperty(STFD_OPRTION, "spacemanagement.SpaceManagementService.getEntityList", false, null, null, null);
-		addProperty(STFD_QUERY_MAXRESULT, 10, false, null, null, null);
-		addProperty(STFD_ENTPROP, "name", false, null, null, null);
+		setParentConfigtype(STATEFIELD, false, this.getClass(), BaseFieldConfigType.class, StateFieldConfig.class);
+		
+		ModelConfigType modelConfigType = new ModelConfigType();
+		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "appdefinition.AppDefinitionService.getAllServiceList", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
+		modelConfigType.addProperty(ModelConfigType.QUERYNAME, "getServiceSuggestionsForAugs", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.QUERYPARAM, "queryParam", false, null, null, null);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(IS_STATIC_BOX, false, false, null, null, null);
+		viewConfigType.addProperty(IS_SEARCH_QUERY, false, false, null, null, null);
+		viewConfigType.addProperty(IS_AUTOSUGGESTION, false, false, null, null, null);
+		viewConfigType.addProperty(STFD_ENTPROP, "name", false, null, null, null);
+		viewConfigType.addProperty(BF_SUGGESTION_TEXT, "Enter a service name", false, null, null, null);
+		
+		addProperty(MODEL, modelConfigType);
+		addProperty(VIEW, viewConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
 	}
 }

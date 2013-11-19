@@ -25,14 +25,25 @@ public class ListBoxFieldConfigType extends BaseFieldConfigType {
 	
 	public ListBoxFieldConfigType() {
 		setParentConfigtype(LISTBOX, false, this.getClass(), BaseFieldConfigType.class, ListBoxFieldConfig.class);
-		addProperty(LSTFD_VISIBLE_ITEM_CNT, 10, false, null, null, null);
-		addProperty(LSTFD_LOADERIMG_BLOBID, "images/loader.jpg", false, null, null, null);
-		addProperty(LSTFD_QUERYNAME, "getAllSpaces", false, null, null, null);
-		addProperty(LSTFD_OPRTION, "spacemanagement.SpaceManagementService.getEntityList", false, null, null, null);
-		addProperty(LSTFD_QUERY_MAXRESULT, 10, false, null, null, null);
-		addProperty(LSTFD_ENTPROP, "name", false, null, null, null);
-		addProperty(LSTFD_LOADERIMG_PCLS, "", false, null, null, null);
-		addProperty(LSTFD_LOADERIMG_DCLS, "", false, null, null, null);
+		
+		ModelConfigType modelConfigType = new ModelConfigType();
+		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "appdefinition.AppDefinitionService.getAllServiceList", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
+		modelConfigType.addProperty(ModelConfigType.QUERYNAME, "getServicesForAugs", false, null, null, null);
+		//modelConfigType.addProperty(ModelConfigType.QUERYPARAM, "queryParam", false, null, null, null);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(LSTFD_VISIBLE_ITEM_CNT, 10, false, null, null, null);
+		viewConfigType.addProperty(LSTFD_LOADERIMG_BLOBID, "images/loader.jpg", false, null, null, null);
+		viewConfigType.addProperty(LSTFD_ENTPROP, "name", false, null, null, null);
+		viewConfigType.addProperty(BF_PCLS, "dynamicUIListBox", false, null, null, null);
+		viewConfigType.addProperty(LSTFD_LOADERIMG_PCLS, "dynamicUIListBoxLoader", false, null, null, null);
+		viewConfigType.addProperty(BF_DEFVAL, "--Select service--", false, null, null, null);
+		
+		
+		addProperty(MODEL, modelConfigType);
+		addProperty(VIEW, viewConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
 	}
 	
 }

@@ -25,13 +25,19 @@ public class DatePickerFieldConfigType extends BaseFieldConfigType{
 	public static final String	DATEPICKERCONFIG		= "DatePickerFieldConfig";
 	
 	public DatePickerFieldConfigType() {
-		setParentConfigtype(DATEPICKERCONFIG, false, this.getClass(), IntellithoughtFieldConfigType.class, DatePickerFieldConfig.class);
-		addProperty(BF_DEFVAL, "01.07.2013", false, null, null, null);
-		addProperty(DP_MAXDATE, "03.08.2013", false, null, null, null);
-		addProperty(DP_MINDATE, "05.06.2013", false, null, null, null);
-		addProperty(DP_FORMAT, "dd.MM.yyyy", false, null, null, null);
-		addProperty(DP_ALLOWBLNK, false, false, null, null, null);
-		addProperty(BF_ERRPOS, DatePickerConstant.BF_BOTTOM, false, null, null, null);
+		setParentConfigtype(DATEPICKERCONFIG, false, this.getClass(), BaseFieldConfigType.class, DatePickerFieldConfig.class);
+
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(BF_DEFVAL, "01.07.2013", false, null, null, null);
+		viewConfigType.addProperty(DP_MAXDATE, "03.08.2013", false, null, null, null);
+		viewConfigType.addProperty(DP_MINDATE, "05.06.2013", false, null, null, null);
+		viewConfigType.addProperty(DP_FORMAT, "dd.MM.yyyy", false, null, null, null);
+		viewConfigType.addProperty(DP_ALLOWBLNK, false, false, null, null, null);
+		viewConfigType.addProperty(BF_ERRPOS, DatePickerConstant.BF_BOTTOM, false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(PRESENTER, new PresenterConfigType());
+		addProperty(VIEW, viewConfigType);
 	}
 
 }

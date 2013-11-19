@@ -44,6 +44,9 @@ public class BaseFieldConfigType extends ConfigType{
 	public static final String BF_VALUETYPE = "valueType";
 	
 	public static final String	BASEFIELDCONFIG		= "BaseFieldConfig";
+	public static final String	MODEL		= "model";
+	public static final String	VIEW		= "view";
+	public static final String	PRESENTER		= "presenter";
 	
 	public BaseFieldConfigType() {
 		setParentConfigtype(BASEFIELDCONFIG, false, this.getClass(), null, BaseFieldConfig.class);
@@ -63,7 +66,19 @@ public class BaseFieldConfigType extends ConfigType{
 		addProperty(BF_ALLOWBLNK, false , false, null, null, null);
 		addProperty(BF_BINDPROP, "name" , false, null, null, null);
 		addProperty(BF_ERRMSGICONCLS, "errorIconCss" , false, null, null, null);
-		addProperty(BF_VALUETYPE, "StringValueType" , false, null, null, null);
+		
+		//addAlternateProperties();
+	}
+	
+	private void addAlternateProperties(){
+		
+		addAlternateProperty(BF_ERRPOS, BF_BOTTOM, false, null, null, null);
+		addAlternateProperty(BF_ERRPOS, BF_SIDE, false, null, null, null);
+		addAlternateProperty(BF_ERRPOS, BF_ERRINLINE, false, null, null, null);
+		
+		addAlternateProperty(BF_SUGGESTION_POS, BF_BOTTOM, false, null, null, null);
+		addAlternateProperty(BF_SUGGESTION_POS, BF_SIDE, false, null, null, null);
+		addAlternateProperty(BF_SUGGESTION_POS, BF_SUGGESTION_INLINE, false, null, null, null);
 	}
 	
 }

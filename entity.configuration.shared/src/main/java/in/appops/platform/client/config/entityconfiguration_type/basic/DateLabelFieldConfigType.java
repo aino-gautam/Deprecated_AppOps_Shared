@@ -23,10 +23,17 @@ public class DateLabelFieldConfigType extends BaseFieldConfigType {
 	
 	public DateLabelFieldConfigType() {
 		setParentConfigtype(DATELABEL, false, this.getClass(), BaseFieldConfigType.class, DateLabelFieldConfig.class);
-		addProperty(DTLBL_DSPLY_FORM, DATETIME_DSPLY, false, null, null, null);
-		addProperty(DATETIME_FORMAT, "MMM dd ''yy 'at' HH:mm", false, null, null, null);
-		addProperty(DATETIME_TO_DISPLAY, new Date(), false, null, null, null);
-		addProperty(IS_TITLE_VISIBLE, false, false, null, null, null);
+		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		viewConfigType.addProperty(DTLBL_DSPLY_FORM, DATETIME_DSPLY, false, null, null, null);
+		//viewConfigType.addAlternateProperty(DTLBL_DSPLY_FORM, LIVETIMESTAMP_DSPLY, false, null, null, null);
+		viewConfigType.addProperty(DATETIME_FORMAT, "MMM dd ''yy 'at' HH:mm", false, null, null, null);
+		viewConfigType.addProperty(DATETIME_TO_DISPLAY, new Date(), false, null, null, null);
+		viewConfigType.addProperty(IS_TITLE_VISIBLE, false, false, null, null, null);
+		viewConfigType.addProperty(BF_PCLS, "dateTimelabel", false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(PRESENTER, new PresenterConfigType());
+		addProperty(VIEW, viewConfigType);
 	}
-	
 }

@@ -23,6 +23,8 @@ public class QueryThoughtFieldConfigType extends IntellithoughtFieldConfigType{
 	public QueryThoughtFieldConfigType() {
 		setParentConfigtype(QUERYTHOUGHTCONFIG, false, this.getClass(), IntellithoughtFieldConfigType.class, QueryThoughtFieldConfig.class);
 		
+		ViewConfigType viewConfigType = new ViewConfigType();
+		
 		Entity serviceEnt = new Entity();
 		serviceEnt.setType(new MetaType(Service.class));
 		serviceEnt.setPropertyByName("id", new Key<Long>(27L));
@@ -30,8 +32,13 @@ public class QueryThoughtFieldConfigType extends IntellithoughtFieldConfigType{
 		schemaEnt.setType(new MetaType(SchemaDefinition.class));
 		schemaEnt.setPropertyByName("id", new Key<Long>(93L));
 		
-		addProperty(QRYTHOUGHT_SERVICE, serviceEnt, false, null, null, null);
-		addProperty(QRYTHOUGHT_SERVICE, serviceEnt, false, null, null, null);
+		viewConfigType.addProperty(QRYTHOUGHT_SERVICE, serviceEnt, false, null, null, null);
+		viewConfigType.addProperty(QRYTHOUGHT_SERVICE, serviceEnt, false, null, null, null);
+		
+		addProperty(MODEL, new ModelConfigType());
+		addProperty(VIEW, viewConfigType);
+		addProperty(PRESENTER, new PresenterConfigType());
+		
 	}
 
 }
