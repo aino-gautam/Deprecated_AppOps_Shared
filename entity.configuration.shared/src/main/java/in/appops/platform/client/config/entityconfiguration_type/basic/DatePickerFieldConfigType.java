@@ -1,6 +1,5 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
-import in.appops.client.common.config.field.date.DatePickerField.DatePickerConstant;
 import in.appops.platform.client.config.client_type.DatePickerFieldConfig;
 
 /**
@@ -25,22 +24,27 @@ public class DatePickerFieldConfigType extends BaseFieldConfigType{
 	public static final String	DATEPICKERCONFIG		= "DatePickerFieldConfig";
 	
 	public DatePickerFieldConfigType() {
+		super(false);
 		setParentConfigtype(DATEPICKERCONFIG, false, this.getClass(), BaseFieldConfigType.class, DatePickerFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
-	public void populateProperties() {
-		ViewConfigType viewConfigType = new ViewConfigType();
+	protected void populateProperties() {
 		viewConfigType.addProperty(BF_DEFVAL, "01.07.2013", false, null, null, null);
 		viewConfigType.addProperty(DP_MAXDATE, "03.08.2013", false, null, null, null);
 		viewConfigType.addProperty(DP_MINDATE, "05.06.2013", false, null, null, null);
 		viewConfigType.addProperty(DP_FORMAT, "dd.MM.yyyy", false, null, null, null);
 		viewConfigType.addProperty(DP_ALLOWBLNK, false, false, null, null, null);
-		viewConfigType.addProperty(BF_ERRPOS, DatePickerConstant.BF_BOTTOM, false, null, null, null);
-		
-		addProperty(MODEL, new ModelConfigType());
-		addProperty(PRESENTER, new PresenterConfigType());
-		addProperty(VIEW, viewConfigType);
+		viewConfigType.addProperty(DP_ERRMSGBLNK, "value can not be blank" , false, null, null, null);
+		viewConfigType.addProperty(DP_ERRMSGMIN, "please check minimum date" , false, null, null, null);
+		viewConfigType.addProperty(DP_ERRMSGMAX, "please check max date", false, null, null, null);
+		//populateAlternateProperties();
 	}
-
+	
+	@Override
+	protected void populateAlternateProperties() {
+		super.populateAlternateProperties();
+	}
+	
 }

@@ -1,5 +1,8 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import in.appops.platform.client.config.client_type.ToggleImageFieldConfig;
 
 /**
@@ -9,6 +12,7 @@ import in.appops.platform.client.config.client_type.ToggleImageFieldConfig;
 @SuppressWarnings("serial")
 public class ToggleImageFieldConfigType extends BaseFieldConfigType{
 	
+	/** Configurations available **/
 	public static final String TIMGFD_UPSTATE_URL = "upStateUrl";
 	public static final String TIMGFD_DWNSTATE_URL = "downStateUrl";
 	public static final String TIMGFD_UPSTATE_TITLE = "upStateTitle";
@@ -17,22 +21,24 @@ public class ToggleImageFieldConfigType extends BaseFieldConfigType{
 	public static final String TIMGFD_STATEIMG_DCLS = "stateImgDependentCss";
 	
 	public static final String	TOGGLEIMAGECONFIG		= "ToggleImageFieldConfig";
+	private Logger logger = Logger.getLogger("ToggleImageFieldConfigType");
 	
 	public ToggleImageFieldConfigType() {
+		super(true);
 		setParentConfigtype(TOGGLEIMAGECONFIG, false, this.getClass(), BaseFieldConfigType.class, ToggleImageFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
 	public void populateProperties() {
-		ViewConfigType viewConfigType = new ViewConfigType();
-		viewConfigType.addProperty(TIMGFD_UPSTATE_URL, "images/disclosureRightArrow.png", false, null, null, null);
-		viewConfigType.addProperty(TIMGFD_UPSTATE_TITLE,"down", false, null, null, null);
-		viewConfigType.addProperty(TIMGFD_DWNSTATE_URL, "images/disclosureDownArrow.png", false, null, null, null);
-		viewConfigType.addProperty(TIMGFD_DWNSTATE_TITLE,"up", false, null, null, null);
-		viewConfigType.addProperty(TIMGFD_STATEIMG_PCLS,"toggleImageFieldPreview", false, null, null, null);
-		
-		addProperty(MODEL, new ModelConfigType());
-		addProperty(PRESENTER, new PresenterConfigType());
-		addProperty(VIEW, viewConfigType);
+		try {
+			viewConfigType.addProperty(TIMGFD_UPSTATE_URL, "images/disclosureRightArrow.png", false, null, null, null);
+			viewConfigType.addProperty(TIMGFD_UPSTATE_TITLE,"down", false, null, null, null);
+			viewConfigType.addProperty(TIMGFD_DWNSTATE_URL, "images/disclosureDownArrow.png", false, null, null, null);
+			viewConfigType.addProperty(TIMGFD_DWNSTATE_TITLE,"up", false, null, null, null);
+			viewConfigType.addProperty(TIMGFD_STATEIMG_PCLS,"toggleImageFieldPreview", false, null, null, null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[ToggleImageFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
 	}
 }

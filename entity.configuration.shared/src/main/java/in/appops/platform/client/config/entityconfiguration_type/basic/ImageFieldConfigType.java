@@ -1,5 +1,8 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import in.appops.platform.client.config.client_type.ImageFieldConfig;
 
 /**
@@ -10,24 +13,27 @@ import in.appops.platform.client.config.client_type.ImageFieldConfig;
 @SuppressWarnings("serial")
 public class ImageFieldConfigType extends BaseFieldConfigType {
 	
+	/**Configurations available **/
 	public static final String IMGFD_TITLE = "title";
 	public static final String IMGFD_BLOBID = "blobId";
 	public static final String	IMAGE		= "ImageFieldConfig";
 	
+	private Logger logger = Logger.getLogger("ImageFieldConfigType");
+	
 	public ImageFieldConfigType() {
+		super(false);
 		setParentConfigtype(IMAGE, false, this.getClass(), BaseFieldConfigType.class, ImageFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
 	public void populateProperties() {
-
-		ViewConfigType viewConfigType = new ViewConfigType();
-		viewConfigType.addProperty(IMGFD_TITLE, "User", false, null, null, null);
-		viewConfigType.addProperty(IMGFD_BLOBID, "images/userIcon.jpg", false, null, null, null);
-		
-		addProperty(MODEL, new ModelConfigType());
-		addProperty(PRESENTER, new PresenterConfigType());
-		addProperty(VIEW, viewConfigType);
+		try {
+			viewConfigType.addProperty(IMGFD_TITLE, "User", false, null, null, null);
+			viewConfigType.addProperty(IMGFD_BLOBID, "images/userIcon.jpg", false, null, null, null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[ImageFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
 	}
 	
 }

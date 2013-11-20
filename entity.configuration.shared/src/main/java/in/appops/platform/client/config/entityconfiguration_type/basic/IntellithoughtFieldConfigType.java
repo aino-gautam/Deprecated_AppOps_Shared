@@ -1,5 +1,8 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import in.appops.platform.client.config.client_type.IntellithoughtFieldConfig;
 
 /**
@@ -26,33 +29,40 @@ public class IntellithoughtFieldConfigType extends BaseFieldConfigType{
 	public static final String INTLTHT_LOADERIMG_PCLS = "loaderImgPrimaryCss";
 	
 	public static final String	INTELLITHOUGHTCONFIG		= "IntellithoughtFieldConfig";
+	private Logger logger = Logger.getLogger("IntellithoughtFieldConfigType");
+	
+	public IntellithoughtFieldConfigType(Boolean isReadOnly) {
+		super(isReadOnly);
+		setParentConfigtype(INTELLITHOUGHTCONFIG, false, this.getClass(), BaseFieldConfigType.class, IntellithoughtFieldConfig.class);
+	}
 	
 	public IntellithoughtFieldConfigType() {
+		super(true);
 		setParentConfigtype(INTELLITHOUGHTCONFIG, false, this.getClass(), BaseFieldConfigType.class, IntellithoughtFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
 	public void populateProperties() {
-		ModelConfigType modelConfigType = new ModelConfigType();
-		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "spacemanagement.SpaceManagementService.getLinkSuggestions", false, null, null, null);
-		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
-		//modelConfigType.addProperty(ModelConfigType.QUERYNAME, "getServicesForAugs", false, null, null, null);
-		//modelConfigType.addProperty(ModelConfigType.QUERYPARAM, "queryParam", false, null, null, null);
-		
-		ViewConfigType viewConfigType = new ViewConfigType();
-		viewConfigType.addProperty(BF_PCLS, "intelliThoughtField", false, null, null, null);
-		viewConfigType.addProperty(BF_SUGGESTION_TEXT, "Any thoughts", false, null, null, null);
-		viewConfigType.addProperty(FIRE_EDITINITIATED_EVENT, true, false, null, null, null);
-		viewConfigType.addProperty(FIRE_THREECHARENTERED_EVENT, true, false, null, null, null);
-		viewConfigType.addProperty(FIRE_WORDENTERED_EVENT, true, false, null, null, null);
-		viewConfigType.addProperty(INTLTHT_ENTPROP, "name", false, null, null, null);
-		viewConfigType.addProperty(INTLTHT_MAXCHARLEN, 3, false, null, null, null);
-		viewConfigType.addProperty(BF_ID, "intelliTextField", false, null, null, null);
-		viewConfigType.addProperty(INTLTHT_SUGGESTIONLBL_PCLS, "appops-intelliThoughtSuggestionLabel", false, null, null, null);
-		viewConfigType.addProperty(INTLTHT_SUGGESTIONPOPUP_PCLS, "appops-intelliThoughtLinkedSuggestionPopup", false, null, null, null);
-		
-		addProperty(MODEL, modelConfigType);
-		addProperty(PRESENTER, new PresenterConfigType());
-		addProperty(VIEW, viewConfigType);
+		try {
+			modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, null, false, null, null, null);
+			modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, null, false, null, null, null);
+			modelConfigType.addProperty(ModelConfigType.QUERYNAME, null, false, null, null, null);
+			modelConfigType.addProperty(ModelConfigType.QUERYPARAM, null, false, null, null, null);
+			
+			viewConfigType.addProperty(BF_PCLS, "intelliThoughtField", false, null, null, null);
+			viewConfigType.addProperty(BF_SUGGESTION_TEXT, "Any thoughts", false, null, null, null);
+			viewConfigType.addProperty(FIRE_EDITINITIATED_EVENT, true, false, null, null, null);
+			viewConfigType.addProperty(FIRE_THREECHARENTERED_EVENT, true, false, null, null, null);
+			viewConfigType.addProperty(FIRE_WORDENTERED_EVENT, true, false, null, null, null);
+			viewConfigType.addProperty(INTLTHT_ENTPROP, "name", false, null, null, null);
+			viewConfigType.addProperty(INTLTHT_MAXCHARLEN, 3, false, null, null, null);
+			viewConfigType.addProperty(BF_ID, "intelliTextField", false, null, null, null);
+			viewConfigType.addProperty(INTLTHT_SUGGESTIONLBL_PCLS, "appops-intelliThoughtSuggestionLabel", false, null, null, null);
+			viewConfigType.addProperty(INTLTHT_SUGGESTIONPOPUP_PCLS, "appops-intelliThoughtLinkedSuggestionPopup", false, null, null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.log(Level.SEVERE,"[IntellithoughtFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
 	}
 }

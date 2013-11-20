@@ -1,5 +1,8 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import in.appops.platform.client.config.client_type.LocationSelectorFieldConfig;
 
 /**
@@ -9,6 +12,7 @@ import in.appops.platform.client.config.client_type.LocationSelectorFieldConfig;
 @SuppressWarnings("serial")
 public class LocationSelectorFieldConfigType extends BaseFieldConfigType{
 
+	/** Configurations available **/
 	public static final String LOCNFD_SHOWINPOPUP = "isMapInPopup";
 	public static final String LOCNFD_POPUP_ICON_BLOB = "blobId";
 	public static final String LOCNFD_HEIGHT = "height";
@@ -26,30 +30,31 @@ public class LocationSelectorFieldConfigType extends BaseFieldConfigType{
 	public static final String LOCNFD_INVALID_LOCNMSG = "invalidMsg";
 	
 	public static final String	LOCATIONSELECTORCONFIG		= "LocationSelectorFieldConfig";
+	private Logger logger = Logger.getLogger("LocationSelectorFieldConfigType");
 	
 	public LocationSelectorFieldConfigType() {
+		super(true);
 		setParentConfigtype(LOCATIONSELECTORCONFIG, false, this.getClass(), BaseFieldConfigType.class, LocationSelectorFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
 	public void populateProperties() {
-
-		ViewConfigType viewConfigType = new ViewConfigType();
-		viewConfigType.addProperty(LOCNFD_ZOOMLEVEL, 8, false, null, null, null);
-		viewConfigType.addProperty(LOCFD_WIDTH, "400px", false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_HEIGHT, "200px", false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_LATITUDE, 18.5398, false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_LONGITUDE, 73.9081, false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_SHOWINPOPUP, true, false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_DONEBTN_CSS, "appops-Button", false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_LOCATION_IMG_CSS, "locationImage", false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_SEARCHBOX_PCLS, "locationSearchBox", false, null, null, null);
-		viewConfigType.addProperty(LOCNFD_SEARCHBOX_DCLS, "fadeInRight", false, null, null, null);
-		viewConfigType.addProperty(BF_ERRPOS, BF_ERRINLINE, false, null, null, null);
-		viewConfigType.addProperty(BF_INVLDMSG, "Invalid location", false, null, null, null);
-		
-		addProperty(MODEL, new ModelConfigType());
-		addProperty(VIEW, viewConfigType);
-		addProperty(PRESENTER, new PresenterConfigType());
+		try {
+			viewConfigType.addProperty(LOCNFD_ZOOMLEVEL, 8, false, null, null, null);
+			viewConfigType.addProperty(LOCFD_WIDTH, "400px", false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_HEIGHT, "200px", false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_LATITUDE, 18.5398, false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_LONGITUDE, 73.9081, false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_SHOWINPOPUP, true, false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_DONEBTN_CSS, "appops-Button", false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_LOCATION_IMG_CSS, "locationImage", false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_SEARCHBOX_PCLS, "locationSearchBox", false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_SEARCHBOX_DCLS, "fadeInRight", false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_ERRPOS, BF_ERRINLINE, false, null, null, null);
+			viewConfigType.addProperty(LOCNFD_INVALID_LOCNMSG, "Invalid location", false, null, null, null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[LocationSelectorFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
 	}
 }

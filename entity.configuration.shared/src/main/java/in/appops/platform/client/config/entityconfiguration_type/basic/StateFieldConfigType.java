@@ -1,5 +1,8 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import in.appops.platform.client.config.client_type.StateFieldConfig;
 
 /**
@@ -9,6 +12,7 @@ import in.appops.platform.client.config.client_type.StateFieldConfig;
 @SuppressWarnings("serial")
 public class StateFieldConfigType extends BaseFieldConfigType{
 
+	/** Configurations available **/
 	public static final String IS_STATIC_BOX = "isStaticBox";
 	public static final String ITEMS_LIST = "itemsList";
 	public static final String STFD_QUERYNAME = "queryName";
@@ -20,27 +24,34 @@ public class StateFieldConfigType extends BaseFieldConfigType{
 	public static final String IS_AUTOSUGGESTION = "isAutoSuggestion";
 	public static final String	STATEFIELD		= "StateFieldConfig";
 	
+	private Logger logger = Logger.getLogger("StateFieldConfigType");
+	
 	public StateFieldConfigType() {
+		super(false);
 		setParentConfigtype(STATEFIELD, false, this.getClass(), BaseFieldConfigType.class, StateFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
 	public void populateProperties() {
-		ModelConfigType modelConfigType = new ModelConfigType();
-		modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, "appdefinition.AppDefinitionService.getAllServiceList", false, null, null, null);
-		//modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, "param", false, null, null, null);
-		modelConfigType.addProperty(ModelConfigType.QUERYNAME, "getServiceSuggestionsForAugs", false, null, null, null);
-		//modelConfigType.addProperty(ModelConfigType.QUERYPARAM, "queryParam", false, null, null, null);
-		
-		ViewConfigType viewConfigType = new ViewConfigType();
-		viewConfigType.addProperty(IS_STATIC_BOX, false, false, null, null, null);
-		viewConfigType.addProperty(IS_SEARCH_QUERY, false, false, null, null, null);
-		viewConfigType.addProperty(IS_AUTOSUGGESTION, false, false, null, null, null);
-		viewConfigType.addProperty(STFD_ENTPROP, "name", false, null, null, null);
-		viewConfigType.addProperty(BF_SUGGESTION_TEXT, "Enter a service name", false, null, null, null);
-		
-		addProperty(MODEL, modelConfigType);
-		addProperty(VIEW, viewConfigType);
-		addProperty(PRESENTER, new PresenterConfigType());
+		try {
+			modelConfigType.addProperty(ModelConfigType.OPERATIONNAME, null, false, null, null, null);
+			modelConfigType.addProperty(ModelConfigType.OPERATIONPARAM, null, false, null, null, null);
+			modelConfigType.addProperty(ModelConfigType.QUERYNAME, null, false, null, null, null);
+			modelConfigType.addProperty(ModelConfigType.QUERYPARAM, null, false, null, null, null);
+			
+			viewConfigType.addProperty(IS_STATIC_BOX, false, false, null, null, null);
+			viewConfigType.addProperty(IS_SEARCH_QUERY, false, false, null, null, null);
+			viewConfigType.addProperty(IS_AUTOSUGGESTION, false, false, null, null, null);
+			viewConfigType.addProperty(STFD_ENTPROP, "name", false, null, null, null);
+			viewConfigType.addProperty(BF_SUGGESTION_POS, BF_SUGGESTION_INLINE, false, null, null, null);
+			viewConfigType.addProperty(BF_SUGGESTION_TEXT, "Enter suggestion text", false, null, null, null);
+			viewConfigType.addProperty(ITEMS_LIST, null, false, null, null, null);
+			viewConfigType.addProperty(STFD_QUERY_MAXRESULT, 10, false, null, null, null);
+			viewConfigType.addProperty(STFD_QUERY_RESTRICTION, null, false, null, null, null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[StateFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
+				
 	}
 }

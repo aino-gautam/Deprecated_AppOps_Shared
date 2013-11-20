@@ -11,7 +11,7 @@ public class PresenterConfigType extends ConfigType{
 	public static final String	EVENTACTIONRULRMAP		= "eventActionRuleMap";
 	
 	public PresenterConfigType() {
-
+		addProperty(EVENTACTIONRULRMAP, new EventActionRuleMapConfigType());
 	}
 
 }

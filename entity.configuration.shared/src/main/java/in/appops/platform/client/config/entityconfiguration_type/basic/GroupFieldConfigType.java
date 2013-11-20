@@ -2,6 +2,8 @@ package in.appops.platform.client.config.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.GroupFieldConfig;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author pallavi@ensarm.com
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class GroupFieldConfigType extends BaseFieldConfigType{
 	
+	/** Configurations available **/
 	public static final String GF_TYPE = "fieldType";
 	public static final String GFTYPE_SINGLE_SELECT = "singleSelect";
 	public static final String GFTYPE_MULTISELECT = "multiselect";
@@ -22,34 +25,34 @@ public class GroupFieldConfigType extends BaseFieldConfigType{
 	public static final String GF_ID = "groupFieldid";
 	
 	public static final String	GROUPFIELDCONFIG		= "GroupFieldConfig";
+	private Logger logger = Logger.getLogger("GroupFieldConfigType");
 	
 	public GroupFieldConfigType() {
-		setParentConfigtype(GROUPFIELDCONFIG, false, this.getClass(), BaseFieldConfigType.class, GroupFieldConfig.class);
+		super(false);
+		setParentConfigtype(GROUPFIELDCONFIG, false, this.getClass(), GroupFieldConfigType.class, GroupFieldConfig.class);
+		populateProperties();
 	}
 	
-	 @Override
+	@Override
 	public void populateProperties() {
-		 ViewConfigType viewConfigType = new ViewConfigType();
-			
-			viewConfigType.addProperty(GF_TYPE, GFTYPE_SINGLE_SELECT, false, null, null, null);
-			//viewConfigType.addAlternateProperty(GF_TYPE,GFTYPE_MULTISELECT, false, null, null, null);
-			
-			viewConfigType.addProperty(GF_ALIGNMENT,GF_ALIGN_VERTICAL, false, null, null, null);
-			//viewConfigType.addAlternateProperty(GF_ALIGNMENT,GF_ALIGN_HORIZONTAL, false, null, null, null);
-			
+		try {
+			viewConfigType.addProperty(GF_TYPE, GFTYPE_SINGLE_SELECT, false, null,null, null);
+			viewConfigType.addProperty(GF_ALIGNMENT, GF_ALIGN_VERTICAL, false,null, null, null);
 			viewConfigType.addProperty(GF_LIMIT, 3, false, null, null, null);
-			
-			ArrayList<String> listOfItems = new ArrayList<String>();
-			listOfItems.add("radio1");
-			listOfItems.add("radio2");
-			listOfItems.add("radio3");
-			listOfItems.add("radio4");
-			
-			viewConfigType.addProperty(GF_LIST_OF_ITEMS,listOfItems, false, null, null, null);
-			viewConfigType.addProperty(GF_ID, "testGroupField", false, null, null, null);
-			
-			addProperty(MODEL, new ModelConfigType());
-			addProperty(PRESENTER, new PresenterConfigType());
-			addProperty(VIEW, viewConfigType);
+			viewConfigType.addProperty(GF_LIST_OF_ITEMS, null, false, null, null,null);
+			viewConfigType.addProperty(GF_ID, "testGroupField", false, null, null,null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[GroupFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
+	}
+	 
+	 @Override
+	protected void populateAlternateProperties() {
+		try {
+			viewConfigType.addAlternateProperty(GF_TYPE,GFTYPE_MULTISELECT, false, null, null, null);
+			viewConfigType.addAlternateProperty(GF_ALIGNMENT,GF_ALIGN_HORIZONTAL, false, null, null, null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[GroupFieldConfigType]::Exception In populateAlternateProperties  method :"+e);
+		}
 	}
 }

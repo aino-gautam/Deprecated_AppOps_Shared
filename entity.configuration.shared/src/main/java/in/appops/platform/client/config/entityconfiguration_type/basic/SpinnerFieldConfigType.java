@@ -1,5 +1,8 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import in.appops.platform.client.config.client_type.SpinnerFieldConfig;
 
 /**
@@ -10,6 +13,7 @@ import in.appops.platform.client.config.client_type.SpinnerFieldConfig;
 @SuppressWarnings("serial")
 public class SpinnerFieldConfigType extends BaseFieldConfigType{
 	
+	/** Configurations available **/
 	public static final String SP_TYPE = "spinnerType";
 	public static final int SP_TYPENUMERIC = 1;
 	public static final int SP_TYPELIST = 2;
@@ -28,31 +32,48 @@ public class SpinnerFieldConfigType extends BaseFieldConfigType{
 	
 	public static final String	SPINNERCONFIG		= "SpinnerFieldConfig";
 	
+	private Logger logger = Logger.getLogger("SpinnerFieldConfigType");
+	
 	public SpinnerFieldConfigType() {
+		super(false);
 		setParentConfigtype(SPINNERCONFIG, false, this.getClass(), BaseFieldConfigType.class, SpinnerFieldConfig.class);
+		populateProperties();
 	}
 	
 	@Override
 	public void populateProperties() {
-		ViewConfigType viewConfigType = new ViewConfigType();
-		
-		viewConfigType.addProperty(SP_TYPE, SP_TYPENUMERIC, false, null, null, null);
-		//viewConfigType.addAlternateProperty(SP_TYPE, SP_TYPELIST, false, null, null, null);
-		
-		viewConfigType.addProperty(SP_STEP, 3, false, null, null, null);
-		viewConfigType.addProperty(SP_UNIT, "km", false, null, null, null);
-		viewConfigType.addProperty(SP_CIRCULAR, true, false, null, null, null);
-		viewConfigType.addProperty(BF_DEFVAL, 25, false, null, null, null);
-		viewConfigType.addProperty(BF_ERRPOS, BF_BOTTOM, false, null, null, null);
-		viewConfigType.addProperty(SP_ALLOWDEC, false, false, null, null, null);
-		viewConfigType.addProperty(BF_VALIDATEONCHANGE, true, false, null, null, null);
-		viewConfigType.addProperty(BF_VALUETYPE, "DecimalValueType", false, null, null, null);
-		viewConfigType.addProperty(DecimalConfigType.MAX_VALUE, 50, false, null, null, null);
-		viewConfigType.addProperty(DecimalConfigType.MIN_VALUE, 15, false, null, null, null);
-		
-		addProperty(MODEL, new ModelConfigType());
-		addProperty(VIEW, viewConfigType);
-		addProperty(PRESENTER, new PresenterConfigType());
+		try {
+			viewConfigType.addProperty(SP_TYPE, SP_TYPENUMERIC, false, null, null, null);
+			viewConfigType.addProperty(SP_STEP, 3, false, null, null, null);
+			viewConfigType.addProperty(SP_UNIT, "km", false, null, null, null);
+			viewConfigType.addProperty(SP_CIRCULAR, true, false, null, null, null);
+			viewConfigType.addProperty(BF_DEFVAL, 25, false, null, null, null);
+			viewConfigType.addProperty(BF_ERRPOS, BF_BOTTOM, false, null, null, null);
+			viewConfigType.addProperty(SP_ALLOWDEC, false, false, null, null, null);
+			viewConfigType.addProperty(BF_VALIDATEONCHANGE, true, false, null, null, null);
+			viewConfigType.addProperty(BF_VALUETYPE, "DecimalValueType", false, null, null, null);
+			viewConfigType.addProperty(DecimalConfigType.MAX_VALUE, 50, false, null, null, null);
+			viewConfigType.addProperty(DecimalConfigType.MIN_VALUE, 15, false, null, null, null);
+			viewConfigType.addProperty(SP_VALUELIST, null, false, null, null, null);
+			viewConfigType.addProperty(SP_VALUEIDX, 0, false, null, null, null);
+			
+			viewConfigType.addProperty(SP_ERRMSGMAX, "please check max value for the field", false, null, null, null);
+			viewConfigType.addProperty(SP_ERRMSGMIN, "please check min value for the field", false, null, null, null);
+			viewConfigType.addProperty(SP_ERRMSGNEG, "Negative value not allowed", false, null, null, null);
+			
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[SpinnerFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
+	}
+	
+	@Override
+	protected void populateAlternateProperties() {
+		try {
+			super.populateAlternateProperties();
+			viewConfigType.addAlternateProperty(SP_TYPE, SP_TYPELIST, false, null, null, null);
+		} catch (Exception e) {
+			logger.log(Level.SEVERE,"[SpinnerFieldConfigType]::Exception In populateProperties  method :"+e);
+		}
 	}
 	
 
