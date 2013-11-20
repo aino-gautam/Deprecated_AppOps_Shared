@@ -27,7 +27,7 @@ public class StateFieldConfigType extends BaseFieldConfigType{
 	private Logger logger = Logger.getLogger("StateFieldConfigType");
 	
 	public StateFieldConfigType() {
-		super(false);
+		super(true);
 		setParentConfigtype(STATEFIELD, false, this.getClass(), BaseFieldConfigType.class, StateFieldConfig.class);
 		populateProperties();
 	}

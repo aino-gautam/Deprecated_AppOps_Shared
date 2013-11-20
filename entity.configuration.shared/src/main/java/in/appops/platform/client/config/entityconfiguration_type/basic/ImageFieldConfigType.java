@@ -21,7 +21,7 @@ public class ImageFieldConfigType extends BaseFieldConfigType {
 	private Logger logger = Logger.getLogger("ImageFieldConfigType");
 	
 	public ImageFieldConfigType() {
-		super(false);
+		super(true);
 		setParentConfigtype(IMAGE, false, this.getClass(), BaseFieldConfigType.class, ImageFieldConfig.class);
 		populateProperties();
 	}

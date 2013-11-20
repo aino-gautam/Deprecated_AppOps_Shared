@@ -1,7 +1,7 @@
 package in.appops.platform.client.config.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.GroupFieldConfig;
-import java.util.ArrayList;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +28,7 @@ public class GroupFieldConfigType extends BaseFieldConfigType{
 	private Logger logger = Logger.getLogger("GroupFieldConfigType");
 	
 	public GroupFieldConfigType() {
-		super(false);
+		super(true);
 		setParentConfigtype(GROUPFIELDCONFIG, false, this.getClass(), GroupFieldConfigType.class, GroupFieldConfig.class);
 		populateProperties();
 	}
