@@ -31,6 +31,7 @@ public class LabelFieldConfigType extends BaseFieldConfigType {
 			viewConfigType.addProperty(LBLFD_DISPLAYTXT, "I am a Label Field", false, null, null, null);
 			viewConfigType.addProperty(LBLFD_TITLE, 500, false, null, null, null);
 			viewConfigType.addProperty(BF_PCLS, "labelFieldPreview", false, null, null, null);
+			viewConfigType.addProperty(BF_BINDPROP, null, false, null, null, null);
 		} catch (Exception e) {
 			logger.log(Level.SEVERE,"[LabelFieldConfigType]::Exception In populateProperties  method :"+e);
 		}

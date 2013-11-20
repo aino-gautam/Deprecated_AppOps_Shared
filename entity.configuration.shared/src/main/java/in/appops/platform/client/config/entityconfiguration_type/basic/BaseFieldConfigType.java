@@ -142,7 +142,6 @@ public class BaseFieldConfigType extends ConfigType{
 			viewConfigType.addProperty(BF_BASEPANEL_DCLS, null, false, null, null, null);
 			viewConfigType.addProperty(BF_VISIBLE, true, false, null, null, null);
 			viewConfigType.addProperty(BF_ENABLED, true, false, null, null, null);
-			viewConfigType.addProperty(BF_BINDPROP, null, false, null, null, null);
 			viewConfigType.addProperty(BF_DEFVAL, null, false, null, null, null);
 		} catch (Exception e) {
 			logger.log(Level.SEVERE,"[BaseFieldConfigType]::Exception In populateReadOnlyFieldProperties method :"+e);
