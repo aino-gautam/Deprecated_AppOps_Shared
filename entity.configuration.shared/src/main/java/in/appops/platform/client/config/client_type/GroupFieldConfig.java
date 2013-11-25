@@ -1,9 +1,9 @@
 package in.appops.platform.client.config.client_type;
 
-import java.util.ArrayList;
-
-import in.appops.platform.client.config.entityconfiguration_type.basic.GroupFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
+import in.appops.platform.server.entityconfiguration_type.basic.GroupFieldConfigType;
+
+import java.util.ArrayList;
 
 /**
  * @author pallavi@ensarm.com

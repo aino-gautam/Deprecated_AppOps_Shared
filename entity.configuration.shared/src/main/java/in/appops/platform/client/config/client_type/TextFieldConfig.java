@@ -1,7 +1,7 @@
 package in.appops.platform.client.config.client_type;
 
-import in.appops.platform.client.config.entityconfiguration_type.basic.TextFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
+import in.appops.platform.server.entityconfiguration_type.basic.TextFieldConfigType;
 
 /**
  * @author pallavi@ensarm.com

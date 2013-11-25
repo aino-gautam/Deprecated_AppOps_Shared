@@ -1,8 +1,8 @@
 package in.appops.platform.client.config.client_type;
 
-import in.appops.platform.client.config.entityconfiguration_type.basic.ToggleImageFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
 import in.appops.platform.core.shared.Configuration;
+import in.appops.platform.server.entityconfiguration_type.basic.ToggleImageFieldConfigType;
 
 /**
  * @author pallavi@ensarm.com

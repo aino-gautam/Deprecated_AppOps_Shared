@@ -1,7 +1,7 @@
 package in.appops.platform.client.config.client_type;
 
-import in.appops.platform.client.config.entityconfiguration_type.basic.ImageFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
+import in.appops.platform.server.entityconfiguration_type.basic.ImageFieldConfigType;
 
 /**
  * @author pallavi@ensarm.com
