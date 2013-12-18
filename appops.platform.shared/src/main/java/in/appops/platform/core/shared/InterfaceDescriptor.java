@@ -3,7 +3,12 @@ package in.appops.platform.core.shared;
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.Property;
 
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class InterfaceDescriptor extends Entity {
 	private static final String	PARENT_SERVICE			= "parentService";
@@ -86,8 +91,25 @@ public class InterfaceDescriptor extends Entity {
 		}
 	}
 	
-	public OperationDescriptor getMethodDescriptor(String methodName) {
+	public OperationDescriptor getMethodDescriptor(String methodName, Map<String, Serializable> paramMap) {
 		HashMap<String, OperationDescriptor> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
+		if(methodDescriptorMap!=null){
+			for(String name : methodDescriptorMap.keySet()){
+				if(name.equals(methodName)){
+					OperationDescriptor operationDescriptor = methodDescriptorMap.get(name);
+					LinkedHashMap<String, String> opParamMap = operationDescriptor.getParameters();
+					
+					if (paramMap.size() == opParamMap.size()){
+						Set<String> keysInIncomingMap = new HashSet<String>(paramMap.keySet());
+						Set<String> keysInComparingMap = new HashSet<String>(opParamMap.keySet());
+						if(keysInIncomingMap.equals(keysInComparingMap))
+							return operationDescriptor;
+						else
+							continue;
+					}
+				}
+			}
+		}
 		return methodDescriptorMap != null ? methodDescriptorMap.get(methodName) : null;
 	}
 	
