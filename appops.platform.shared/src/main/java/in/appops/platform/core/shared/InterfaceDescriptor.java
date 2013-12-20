@@ -106,8 +106,17 @@ public class InterfaceDescriptor extends Entity {
 					ArrayList<OperationDescriptor> operationDescriptorList = methodDescriptorMap.get(name);
 					for(OperationDescriptor operationDescriptor: operationDescriptorList){
 						LinkedHashMap<String, String> opParamMap = operationDescriptor.getParameters();
-
-						if (paramMap.size() == opParamMap.size()){
+						
+						if(paramMap.containsKey("action")){
+							if (paramMap.size()-1 == opParamMap.size()){
+								Set<String> keysInIncomingMap = new HashSet<String>(paramMap.keySet());
+								Set<String> keysInComparingMap = new HashSet<String>(opParamMap.keySet());
+								if(keysInIncomingMap.equals(keysInComparingMap))
+									return operationDescriptor;
+								else
+									continue;
+							}
+						}else if (paramMap.size() == opParamMap.size()){
 							Set<String> keysInIncomingMap = new HashSet<String>(paramMap.keySet());
 							Set<String> keysInComparingMap = new HashSet<String>(opParamMap.keySet());
 							if(keysInIncomingMap.equals(keysInComparingMap))
