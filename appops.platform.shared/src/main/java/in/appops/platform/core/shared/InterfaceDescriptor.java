@@ -3,7 +3,13 @@ package in.appops.platform.core.shared;
 import in.appops.platform.core.entity.Entity;
 import in.appops.platform.core.entity.Property;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class InterfaceDescriptor extends Entity {
 	private static final String	PARENT_SERVICE			= "parentService";
@@ -15,10 +21,10 @@ public class InterfaceDescriptor extends Entity {
 	
 	
 	public InterfaceDescriptor() {
-		Property<HashMap<String, OperationDescriptor>> methodDescriptorMapProp = new Property<HashMap<String, OperationDescriptor>>();
+		Property<HashMap<String, ArrayList<OperationDescriptor>>> methodDescriptorMapProp = new Property<HashMap<String, ArrayList<OperationDescriptor>>>();
 		methodDescriptorMapProp.setName(METHOD_DESCRIPTOR_PROP);
 		
-		HashMap<String, OperationDescriptor> methodDescriptorMap = new HashMap<String, OperationDescriptor>();
+		HashMap<String, ArrayList<OperationDescriptor>> methodDescriptorMap = new HashMap<String, ArrayList<OperationDescriptor>>();
 		methodDescriptorMapProp.setValue(methodDescriptorMap);
 		setProperty(methodDescriptorMapProp);
 	}
@@ -73,22 +79,56 @@ public class InterfaceDescriptor extends Entity {
 		 */
 	}
 	
-	public HashMap<String, OperationDescriptor> getMethodDescriptors() {
-		HashMap<String, OperationDescriptor> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
+	public HashMap<String, ArrayList<OperationDescriptor>> getMethodDescriptors() {
+		HashMap<String, ArrayList<OperationDescriptor>> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
 		return methodDescriptorMap;
 	}
 	
 	public void addMethodDescriptor(String methodName, OperationDescriptor descriptor) {
-		HashMap<String, OperationDescriptor> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
+		HashMap<String, ArrayList<OperationDescriptor>> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
 		if (methodDescriptorMap != null) {
-			methodDescriptorMap.put(methodName, descriptor);
+			ArrayList<OperationDescriptor> operationDescriptorsList = null;
+			if(methodDescriptorMap.containsKey(methodName))
+				operationDescriptorsList = methodDescriptorMap.get(methodName);
+			else
+				operationDescriptorsList = new ArrayList<OperationDescriptor>();
+			operationDescriptorsList.add(descriptor);
+			methodDescriptorMap.put(methodName, operationDescriptorsList);
 			setPropertyByName(METHOD_DESCRIPTOR_PROP, methodDescriptorMap);
 		}
 	}
 	
-	public OperationDescriptor getMethodDescriptor(String methodName) {
-		HashMap<String, OperationDescriptor> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
-		return methodDescriptorMap != null ? methodDescriptorMap.get(methodName) : null;
+	public OperationDescriptor getMethodDescriptor(String methodName, Map<String, Serializable> paramMap) {
+		HashMap<String, ArrayList<OperationDescriptor>> methodDescriptorMap = getPropertyByName(METHOD_DESCRIPTOR_PROP);
+		if(methodDescriptorMap!=null){
+			for(String name : methodDescriptorMap.keySet()){
+				if(name.equals(methodName)){
+					ArrayList<OperationDescriptor> operationDescriptorList = methodDescriptorMap.get(name);
+					for(OperationDescriptor operationDescriptor: operationDescriptorList){
+						LinkedHashMap<String, String> opParamMap = operationDescriptor.getParameters();
+						
+						if(paramMap.containsKey("action")){
+							if (paramMap.size()-1 == opParamMap.size()){
+								Set<String> keysInIncomingMap = new HashSet<String>(paramMap.keySet());
+								Set<String> keysInComparingMap = new HashSet<String>(opParamMap.keySet());
+								if(keysInIncomingMap.equals(keysInComparingMap))
+									return operationDescriptor;
+								else
+									continue;
+							}
+						}else if (paramMap.size() == opParamMap.size()){
+							Set<String> keysInIncomingMap = new HashSet<String>(paramMap.keySet());
+							Set<String> keysInComparingMap = new HashSet<String>(opParamMap.keySet());
+							if(keysInIncomingMap.equals(keysInComparingMap))
+								return operationDescriptor;
+							else
+								continue;
+						}
+					}
+				}
+			}
+		}
+		return null;
 	}
 	
 	public ServiceDescriptor getServiceDescriptor() {
