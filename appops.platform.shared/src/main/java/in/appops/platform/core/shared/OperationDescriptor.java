@@ -34,6 +34,8 @@ public class OperationDescriptor extends Entity {
 	
 	private String OPERATIONID = "operationId";
 	
+	private final String ISREST = "isRest";
+	
 	public OperationDescriptor() {
 		Property<LinkedHashMap<String, String>> parameterMapProp = new Property<LinkedHashMap<String, String>>();
 		parameterMapProp.setName(PARAMETER_MAP_PROP);
@@ -206,5 +208,13 @@ public class OperationDescriptor extends Entity {
 	
 	public void setAssociatedTags(EntityList associatedTagList) {
 		setPropertyByName(ASSOCIATED_TAGS, associatedTagList);
+	}
+	
+	public void setIsRestOperation(Boolean isRest) {
+		setPropertyByName(ISREST, isRest);
+	}
+	
+	public Boolean getIsRestOperation() {
+		return getPropertyByName(ISREST);
 	}
 }
