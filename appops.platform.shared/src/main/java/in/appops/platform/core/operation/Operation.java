@@ -4,6 +4,7 @@
 package in.appops.platform.core.operation;
 
 import in.appops.platform.bindings.web.gwt.dispatch.client.action.Action;
+import in.appops.platform.bindings.web.gwt.dispatch.client.action.RestAction;
 import in.appops.platform.core.entity.type.Type;
 
 import java.io.Serializable;
@@ -25,6 +26,7 @@ final public class Operation implements Serializable {
 	private String						name;
 	private Map<String, Serializable>	parameters;
 	private Type						parent;
+	private boolean 					isRestOperation;		
 	
 	public Operation() {
 		async = false;
@@ -39,6 +41,10 @@ final public class Operation implements Serializable {
 		this.name = action.getActionName();
 		this.parent = action.getParentType();
 		this.parameters = action.getParameters();
+		if(action instanceof RestAction)
+			this.isRestOperation = true;
+		else
+			this.isRestOperation = false;
 	}
 	
 	public Operation(Type t, String nm, boolean b, boolean a) {
@@ -104,6 +110,14 @@ final public class Operation implements Serializable {
 	
 	public void setParameters(Map<String, Serializable> parameters) {
 		this.parameters = parameters;
+	}
+
+	public boolean isRestOperation() {
+		return isRestOperation;
+	}
+
+	public void setRestOperation(boolean isRestOperation) {
+		this.isRestOperation = isRestOperation;
 	}
 	
 }
