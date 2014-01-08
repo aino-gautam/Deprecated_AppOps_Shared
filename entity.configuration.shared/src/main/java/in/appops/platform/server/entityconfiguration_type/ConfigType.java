@@ -1,4 +1,4 @@
-package in.appops.platform.client.config.entityconfiguration_type;
+package in.appops.platform.server.entityconfiguration_type;
 
 import in.appops.client.common.util.EntityToJsonClientConvertor;
 import in.appops.platform.core.entity.Entity;
@@ -120,7 +120,7 @@ public class ConfigType extends Entity {
 	}
 	
 	public void setParentConfigtype(String keyname, Boolean isImmutable, Serializable configtype, Serializable superType, Class clientConfigurationType) {
-		this.parentConfigtype = createConfigType(keyname, null, true, null, null, null, null, configtype, isImmutable, superType, clientConfigurationType.getSimpleName());
+		this.parentConfigtype = createConfigType(keyname, null, true, null, null, null, null, configtype, isImmutable, superType, clientConfigurationType.getName());
 	}
 	
 	public void setParentConfigtype(Entity parentConfigtype) {
@@ -313,9 +313,11 @@ public class ConfigType extends Entity {
 	public boolean isProperty(Entity configTypeEnt) {
 		try {
 			Long empTypeId = configTypeEnt.getPropertyByName(ConfigTypeConstant.EMSTYPEID);
-			if (empTypeId == 3 || empTypeId == 22 || empTypeId == 2 || empTypeId == 77)
-				return true;
-			return false;
+			if(empTypeId!=null){
+				if (empTypeId == 3 || empTypeId == 22 || empTypeId == 2 || empTypeId == 77)
+					return true;
+				return false;
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();

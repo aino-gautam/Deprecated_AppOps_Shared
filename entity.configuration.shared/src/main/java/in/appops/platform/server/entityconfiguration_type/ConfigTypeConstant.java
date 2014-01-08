@@ -1,4 +1,4 @@
-package in.appops.platform.client.config.entityconfiguration_type;
+package in.appops.platform.server.entityconfiguration_type;
 
 public class ConfigTypeConstant {
 	public static final String	ID					= "id";

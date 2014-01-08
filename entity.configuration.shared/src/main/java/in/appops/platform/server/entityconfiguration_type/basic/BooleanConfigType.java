@@ -1,7 +1,7 @@
-package in.appops.platform.client.config.entityconfiguration_type.basic;
+package in.appops.platform.server.entityconfiguration_type.basic;
 
 import in.appops.platform.client.config.client_type.BooleanConfig;
-import in.appops.platform.client.config.entityconfiguration_type.ConfigType;
+import in.appops.platform.server.entityconfiguration_type.ConfigType;
 
 /**
  * @author pallavi@ensarm.com

@@ -1,7 +1,8 @@
 package in.appops.platform.client.config.client_type;
 
-import in.appops.platform.client.config.entityconfiguration_type.basic.StateFieldConfigType;
 import in.appops.platform.core.entity.type.MetaType;
+import in.appops.platform.server.entityconfiguration_type.basic.StateFieldConfigType;
+
 import java.util.HashMap;
 
 /**
