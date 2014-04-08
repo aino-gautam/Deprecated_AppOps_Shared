@@ -156,23 +156,17 @@
 				<version>2.4</version>
 				<configuration>
 					<file>target/appops_shared-${buildNumber}.jar</file>
-					<groupId>mahesh_appops_platform</groupId>
+					<groupId>appops_platform</groupId>
 					<artifactId>appops_shared</artifactId>
 					<version>${buildNumber}</version>
 					<packaging>jar</packaging>
-					<repositoryId>10.10.10.100</repositoryId>
-					<url>http://10.10.10.100:8085/artifactory/libs-release-local</url>
+					<repositoryId>server.ensarm.com</repositoryId>
+					<url>http://server.ensarm.com:8380/artifactory/libs-release-local</url>
 					<description>${description}</description>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<includes>
-						<include>**</include>
-					</includes>
-				</configuration>
-			</plugin> -->
+			<!-- <plugin> <artifactId>maven-jar-plugin</artifactId> <configuration> 
+				<includes> <include>**</include> </includes> </configuration> </plugin> -->
 		</plugins>
 	</build>
 </project>
